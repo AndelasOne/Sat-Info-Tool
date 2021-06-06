@@ -1,7 +1,8 @@
-module org.example {
+module outputs {
     requires javafx.controls;
     requires javafx.fxml;
+    requires main;
 
-    opens org.example to javafx.fxml;
-    exports org.example;
+    opens outputs to javafx.fxml;
+    exports outputs;
 }

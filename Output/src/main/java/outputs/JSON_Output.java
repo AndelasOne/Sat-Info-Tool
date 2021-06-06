@@ -1,4 +1,5 @@
-package org.example;
+package outputs;
+
 
 import main.IOutput;
 
