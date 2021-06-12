@@ -4,4 +4,6 @@ module dhbw.swe {
 
     opens dhbw.swe to javafx.fxml;
     exports dhbw.swe;
+    exports outputs;
+    opens outputs to javafx.fxml;
 }

@@ -1,5 +1,6 @@
-package dhbw.swe;
+package outputs;
 
+import dhbw.swe.IOutput;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,12 +32,9 @@ public class App extends Application implements IOutput {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
-
     @Override
     public void output() {
+        launch();
         System.out.println("Hello GUI");
     }
 }

@@ -8,7 +8,11 @@ package dhbw.swe;
  * Copyright (c) 2021 DHBW Stuttgart
  **/
 public class Main {
+    private final String CONFIG_PATH = "";
+
     public static void main(String[] args) {
+
+
         ClassLoader<IPlugin> pluginLoader = new ClassLoader<>();
         ClassLoader<IOutput> outputLoader = new ClassLoader<>();
 
