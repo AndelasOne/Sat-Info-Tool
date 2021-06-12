@@ -1,9 +1,17 @@
+/**
+ * @author : Andreas Weber, Philip Linkewitz, Marissa Eichhorn
+ * @matrikelnummern: 1540399, 3306922, 4249633
+ * @created : ${DATE}, ${DAY_NAME_FULL}
+ *
+ * Copyright (c) 2021 DHBW Stuttgart
+ **/
+
 package outputs;
 
 import dhbw.swe.IOutput;
 
 public class JSON_Output implements IOutput {
-    public String output() {
-        return "Hello";
+    public void output() {
+        System.out.println("Hello World");
     }
 }

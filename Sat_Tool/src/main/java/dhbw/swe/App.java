@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * JavaFX App
  */
-public class App extends Application {
+public class App extends Application implements IOutput {
 
     private static Scene scene;
 
@@ -35,4 +35,8 @@ public class App extends Application {
         launch();
     }
 
+    @Override
+    public void output() {
+        System.out.println("Hello GUI");
+    }
 }
