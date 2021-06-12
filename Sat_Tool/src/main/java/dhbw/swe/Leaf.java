@@ -2,9 +2,18 @@ package dhbw.swe;
 
 import java.util.List;
 
-public class Leaf extends AbtractNode {
+public class Leaf extends AbstractNode {
+
+    public Leaf(String value) {
+        super(value);
+    }
+
     @Override
-    protected void addAllChildren(List<AbtractNode> list) {
-        // Do nothing
+    public String toStr() {
+        String formatString;
+        formatString = "%" + (layer * 2) + "s";
+        System.out.printf (formatString, "");
+        System.out.println (" - " + super.getValue());
+        return null;
     }
 }

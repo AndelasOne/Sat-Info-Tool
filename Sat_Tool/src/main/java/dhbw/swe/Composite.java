@@ -1,20 +1,30 @@
 package dhbw.swe;
 
-import java.util.List;
-
-public class Composite extends AbtractNode {
+import java.util.Iterator;
 
 
-    @Override
-    public String toStr() {
-        return null;
+public class Composite extends AbstractNode {
+    public Composite(String value) {
+        super(value);
+    }
+
+    public void add(AbstractNode comp){
+        this.children.add(comp);
     }
 
     @Override
-    protected void addAllChildren(List<AbtractNode> list) {
-        for (AbtractNode child : children) {
-            list.add(child);
-            child.addAllChildren(list);
+    public String toStr() {
+        String formatString;
+        ++layer;
+        formatString = "%" + (layer * 2) + "s";
+        System.out.printf (formatString, ""); // Output of empty strings
+        System.out.println ("+ " + super.getValue() + "");
+
+        for(Iterator<AbstractNode> iter = children.iterator(); iter.hasNext();){
+            AbstractNode node = (AbstractNode) (iter.next());
+            node.toStr();
         }
+        --layer;
+        return null;
     }
 }
