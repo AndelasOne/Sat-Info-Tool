@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Program:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="30423300-850b-4372-abf5-34ec29dc9964" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Program_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/artifacts/Output_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/Output.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/out/artifacts/Output_jar/Output.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/java/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/java/outputs/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/java/outputs/JSON_Output.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/java/outputs/PrimaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/java/outputs/SecondaryController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/resources/outputs/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/src/main/resources/outputs/secondary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/outputs/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/outputs/JSON_Output.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/outputs/PrimaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/outputs/SecondaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/outputs/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Output/target/classes/outputs/secondary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/.idea/artifacts/Plugins_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Plugins/.idea/artifacts/Plugins_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/Plugins.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Plugins/Plugins.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/out/artifacts/Plugins_jar/Plugins.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/out/production/Program/main/ClassLoader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/out/production/Program/main/IOutput.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/out/production/Program/main/IPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Plugins/src/GermanChannels.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Plugins/src/plugins/GermanChannels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Program.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ClassLoader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/IOutput.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/IPlugin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Satellite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Sat-Info-Tool.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../Sat-Info-Tool.drawio" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1tg2IRYlp3rYF7CW7GEaai6sV8Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.App" />
+      <module name="Program" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="30423300-850b-4372-abf5-34ec29dc9964" name="Default Changelist" comment="" />
+      <created>1623176334875</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1623176334875</updated>
+      <workItem from="1623176337532" duration="117000" />
+      <workItem from="1623176636237" duration="582000" />
+      <workItem from="1623511524091" duration="329000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
