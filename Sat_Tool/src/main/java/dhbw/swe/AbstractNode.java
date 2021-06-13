@@ -4,18 +4,24 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class AbstractNode {
-    static int layer = 0;
-    private String value = "";
+public abstract class AbstractNode<T> {
+    private T value;
+    List<Leaf<T>> leafs = new ArrayList<>();
+    List<Composite<T>> composites = new ArrayList<>();
 
-    List<AbstractNode> children = new ArrayList<>();
-
-    public AbstractNode(String value) {
+    AbstractNode(T value){
         this.value = value;
     }
 
-    public String getValue(){
+    public List<Leaf<T>> getLeafs(){
+        return leafs;
+    }
+
+    public List<Composite<T>> getComposites(){
+        return composites;
+    }
+
+    public T getValue(){
         return this.value;
     }
-    public abstract String toStr();
 }

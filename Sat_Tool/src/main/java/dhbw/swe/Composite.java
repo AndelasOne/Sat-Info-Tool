@@ -3,28 +3,25 @@ package dhbw.swe;
 import java.util.Iterator;
 
 
-public class Composite extends AbstractNode {
-    public Composite(String value) {
+public class Composite<T> extends AbstractNode<T> {
+    public Composite(T value) {
         super(value);
     }
 
-    public void add(AbstractNode comp){
-        this.children.add(comp);
+    public void addLeaf(Leaf<T> leaf){
+        leafs.add(leaf);
     }
 
-    @Override
-    public String toStr() {
-        String formatString;
-        ++layer;
-        formatString = "%" + (layer * 2) + "s";
-        System.out.printf (formatString, ""); // Output of empty strings
-        System.out.println ("+ " + super.getValue() + "");
-
-        for(Iterator<AbstractNode> iter = children.iterator(); iter.hasNext();){
-            AbstractNode node = (AbstractNode) (iter.next());
-            node.toStr();
-        }
-        --layer;
-        return null;
+    public void addComposite(Composite<T> composite){
+        composites.add(composite);
     }
+
+    public void removeLeaf(int index){
+        leafs.remove(index);
+    }
+
+    public void removeComposite(int index){
+        composites.remove(index);
+    }
+
 }
