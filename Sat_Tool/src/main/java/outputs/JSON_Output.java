@@ -8,10 +8,12 @@
 
 package outputs;
 
+import dhbw.swe.AbstractNode;
 import dhbw.swe.IOutput;
 
 public class JSON_Output implements IOutput {
-    public void output() {
-        System.out.println("Hello World");
+    @Override
+    public void output(AbstractNode<String> input) {
+
     }
 }

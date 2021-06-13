@@ -1,5 +1,7 @@
 package dhbw.swe;
 
+import outputs.GUIOutput;
+
 /**
  * @author : Andreas Weber, Philip Linkewitz, Marissa Eichhorn
  * @matrikelnummern: 1540399, 3306922, 4249633
@@ -18,6 +20,8 @@ public class Main {
 
 //        Class<Object>  plugin = pluginLoader.loadClass();
 //        Class<Object>  output = pluginLoader.loadClass();
-
+        GUIOutput gui = GUIOutput.getInstance();
+        Composite<String> test = new Composite<>("Test");
+        gui.output(test);
     }
 }

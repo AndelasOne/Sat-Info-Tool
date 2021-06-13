@@ -8,8 +8,12 @@
 
 package plugins;
 
+import dhbw.swe.AbstractNode;
 import dhbw.swe.IPlugin;
 
 public class ProgramCounter implements IPlugin {
-
+    @Override
+    public AbstractNode<String> filter(AbstractNode<String> input) {
+        return null;
+    }
 }

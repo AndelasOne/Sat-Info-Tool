@@ -9,5 +9,5 @@
 package dhbw.swe;
 
 public interface IOutput {
-    void output();
+    void output(AbstractNode<String> input);
 }

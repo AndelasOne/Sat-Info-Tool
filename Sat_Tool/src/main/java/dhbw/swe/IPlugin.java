@@ -8,4 +8,5 @@
 package dhbw.swe;
 
 public interface IPlugin {
+    AbstractNode<String> filter(AbstractNode<String> input);
 }
