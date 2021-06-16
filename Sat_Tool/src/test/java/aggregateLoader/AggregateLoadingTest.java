@@ -1,14 +1,10 @@
 package aggregateLoader;
-
 import dhbw.swe.ClassLoader;
 import dhbw.swe.ConfigData;
 import dhbw.swe.IPlugin;
-import dhbw.swe.Main;
 import org.junit.Assert;
 import org.junit.Test;
 import plugins.GermanChannels;
-import plugins.ProgramCounter;
-
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 
@@ -34,6 +30,7 @@ public class AggregateLoadingTest {
                 config.getPlugin().getPath(), config.getPlugin().getClassName(),
                 IPlugin.class);
 
+        // make sure that plugin is instance of GermanChannels -> see test1config file
         Assert.assertTrue(plugin instanceof GermanChannels);
     }
 }
