@@ -39,7 +39,7 @@ public class Main {
 
         // create plugin depending on config file -> Reflection pattern used
         IPlugin plugin = pluginLoader.loadClass(
-                config.plugins.path, config.plugins.className,
+                config.plugin.path, config.plugin.className,
                 IPlugin.class);
         // create output depending on config file -> Reflection pattern used
         IOutput  output = outputLoader.loadClass(config.output.path, config.output.className, IOutput.class);

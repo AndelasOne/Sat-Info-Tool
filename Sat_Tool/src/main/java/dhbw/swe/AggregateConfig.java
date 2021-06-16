@@ -15,4 +15,12 @@ public class AggregateConfig {
         this.path = path;
         this.className = className;
     }
+
+    public String getPath() {
+        return path;
+    }
+
+    public String getClassName() {
+        return className;
+    }
 }

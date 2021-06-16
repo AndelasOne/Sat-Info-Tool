@@ -14,13 +14,15 @@ import static readJSON.ReadJSON.createSatelliteArray;
  **/
 
 public class ConfigData {
-    final AggregateConfig plugins;
+
+
+    final AggregateConfig plugin;
     final AggregateConfig output;
     final String dataPath;
 
 
     public ConfigData(AggregateConfig plugins, AggregateConfig output, String dataPath) {
-        this.plugins = plugins;
+        this.plugin = plugins;
         this.output = output;
         this.dataPath = dataPath;
     }
@@ -42,5 +44,20 @@ public class ConfigData {
         return createSatelliteArray(dataPath);
     }
 
+    /**
+     * get plugin
+     * @return plugin
+     */
+    public AggregateConfig getPlugin() {
+        return plugin;
+    }
+
+    /**
+     * get output
+     * @return output
+     */
+    public AggregateConfig getOutput() {
+        return output;
+    }
 
 }
