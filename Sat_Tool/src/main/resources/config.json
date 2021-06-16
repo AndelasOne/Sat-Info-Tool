@@ -1,22 +1,12 @@
-
 {
   "__comment": " Config File to load Data and Aggregates. Order of plugins is relevant!",
-
-
   "data": "path-to-sattelite-json",
-  "plugins":[
-    {
-      "classname": "TestClass",
-      "path": "path-to-jar"
-    },
-    {
-      "classname": "TestClass",
-      "path": "path-to-jar"
-    }
-  ],
+  "plugins": {
+    "classname": "TestClass",
+    "path": "path-to-jar"
+  },
   "output": {
     "classname": "TestClass",
     "path": "path-to-jar"
   }
-
 }
