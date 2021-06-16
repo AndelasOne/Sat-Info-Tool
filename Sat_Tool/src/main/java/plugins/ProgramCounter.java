@@ -10,10 +10,13 @@ package plugins;
 
 import dhbw.swe.AbstractNode;
 import dhbw.swe.IPlugin;
+import readJSON.Satellite;
+
+import java.util.ArrayList;
 
 public class ProgramCounter implements IPlugin {
     @Override
-    public AbstractNode<String> filter(AbstractNode<String> input) {
+    public AbstractNode<String> filter(ArrayList<Satellite> input) {
         return null;
     }
 }

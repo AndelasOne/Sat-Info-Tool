@@ -7,6 +7,7 @@ package dhbw.swe;
  * <p>
  * Copyright (c) 2021 DHBW Stuttgart
  **/
+
 public enum Direction {
     NORTH,
     SOUTH,

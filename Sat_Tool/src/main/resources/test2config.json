@@ -1,0 +1,12 @@
+{
+  "__comment": " Config File to load Data and Aggregates. Order of plugins is relevant!",
+  "data": "src/main/resources/satellites.json",
+  "plugins": {
+    "classname": "plugins.ProgramCounter",
+    "path": "out/artifacts/Sat_Tool_jar/Sat_Tool.jar"
+  },
+  "output": {
+    "classname": "outputs.GUIOutput",
+    "path": "out/artifacts/Sat_Tool_jar/Sat_Tool.jar"
+  }
+}

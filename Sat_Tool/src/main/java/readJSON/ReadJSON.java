@@ -1,5 +1,7 @@
 package readJSON;
 
+import dhbw.swe.AggregateConfig;
+import dhbw.swe.ConfigData;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -41,6 +43,50 @@ public class ReadJSON {
     }
 
     /**
+     * read data config file
+     * @param file path to config file
+     * @return ConfigData Object with information about program configuration
+     */
+    public static ConfigData readConfigData(String file) {
+        JSONParser parser = new JSONParser();
+
+        try (FileReader reader = new FileReader(file)) {
+            //Read JSON file
+            JSONObject obj = (JSONObject) parser.parse(reader);
+
+            JSONObject jPluginConfig = (JSONObject) obj.get("plugins");
+            AggregateConfig pluginConfig = createAggregateConfig(jPluginConfig);
+
+            JSONObject jOutputConfig = (JSONObject) obj.get("output");
+            AggregateConfig outputConfig = createAggregateConfig(jOutputConfig);
+
+            String satDataPath = (String) obj.get("data");
+
+            return new ConfigData(pluginConfig, outputConfig, satDataPath);
+        }
+
+
+
+        //exception which occurs when an input/output operations fails / parse operations fails
+        catch (IOException | ParseException message) {
+            message.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * create aggregate config object
+     * @param conf config json object
+     * @return aggregate object
+     */
+    private static AggregateConfig createAggregateConfig(JSONObject conf) {
+        String path = (String) conf.get("path");
+        String classname = (String) conf.get("classname");
+
+        return new AggregateConfig(path, classname);
+    }
+
+    /**
      * create JSONArray of channels for all Satellites
      * @param satellite satellite json-object
      * @return satellite object
@@ -53,7 +99,7 @@ public class ReadJSON {
         String freq = (String) satellite.get("freq");
         String sym = (String) satellite.get("sym");
 
-        System.out.printf("*--- Sat: %-14s Orbital: %-10s Pol: %-6s Freq: %-8s Sym: %-8s %n", sat, orbital, pol, freq, sym);
+        //System.out.printf("*--- Sat: %-14s Orbital: %-10s Pol: %-6s Freq: %-8s Sym: %-8s %n", sat, orbital, pol, freq, sym);
 
         JSONArray jChannels = (JSONArray) satellite.get("channels");
         ArrayList<Channel> channelArray = new ArrayList<>();
@@ -80,7 +126,7 @@ public class ReadJSON {
         String enc = (String) channel.get("enc");
         String pckg = (String) channel.get("package");   //pakkage with kk
         String res = (String) channel.get("res");
-        System.out.printf("---* Name: %-25s - Compression: %-10s Encryption: %-8s  Type %-8s %n", name, compression, enc, type);
+        //System.out.printf("---* Name: %-25s - Compression: %-10s Encryption: %-8s  Type %-8s %n", name, compression, enc, type);
 
         return new Channel(sid,type,name, v_pid, a_pid, compression, url, enc, pckg, res );
     }

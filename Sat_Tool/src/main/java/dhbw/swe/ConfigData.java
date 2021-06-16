@@ -31,9 +31,7 @@ public class ConfigData {
      * @return data of config file
      */
     public static ConfigData importConfig(String configPath) {
-        AggregateConfig plugins = new AggregateConfig("out/artifacts/Sat_Tool_jar/Sat_Tool.jar", "plugins.GermanChannels");
-        AggregateConfig output = new AggregateConfig("out/artifacts/Sat_Tool_jar/Sat_Tool.jar", "outputs.GUIOutput");
-        return new ConfigData(plugins, output, "test");
+        return ReadJSON.readConfigData(configPath);
     }
 
     /**

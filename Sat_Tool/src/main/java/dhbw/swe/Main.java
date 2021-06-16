@@ -47,17 +47,16 @@ public class Main {
         // create arraylist of satellites
         ArrayList<Satellite> data = config.importSatData();
 
-        // convert satellite into tree -> Composite pattern
-        AbstractNode<String> tree = createSatComposite(data);
 
+        // convert satellite into tree -> Composite pattern and
         // filter tree with plugin aggregate
-        AbstractNode<String> result = plugin.filter(tree);
+        AbstractNode<String> result = plugin.filter(data);
 
         // output tree with output aggregate
         output.output(result);
     }
 
-    private static AbstractNode<String> createSatComposite(ArrayList<Satellite> list){
-        return null;
+    public static String getConfigPath() {
+        return CONFIG_PATH;
     }
 }

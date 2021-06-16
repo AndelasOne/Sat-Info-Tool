@@ -7,6 +7,10 @@
  **/
 package dhbw.swe;
 
+import readJSON.Satellite;
+
+import java.util.ArrayList;
+
 public interface IPlugin {
-    AbstractNode<String> filter(AbstractNode<String> input);
+    AbstractNode<String> filter(ArrayList<Satellite> input);
 }
