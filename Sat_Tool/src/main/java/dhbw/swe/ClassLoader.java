@@ -14,14 +14,14 @@ import java.net.URLClassLoader;
 
 
 /**
- *
  * @param <T> interface that of loaded filter or output aggregate
  */
-public class ClassLoader <T> {
-    /** This module is used to load different classes.
+public class ClassLoader<T> {
+    /**
+     * This module is used to load different classes.
      *
-     * @param path path to jar-file of loaded class
-     * @param className name of loaded class
+     * @param path           path to jar-file of loaded class
+     * @param className      name of loaded class
      * @param interfaceClass interface of aggregate
      * @return interface of aggregate
      * @throws MalformedURLException

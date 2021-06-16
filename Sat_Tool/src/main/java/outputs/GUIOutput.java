@@ -9,20 +9,6 @@ import javafx.application.Application;
  */
 public class GUIOutput implements IOutput {
     private boolean running = false;
-    private static GUIOutput instance;
-
-    private GUIOutput(){}
-
-    /**
-     *
-     * @return current instance of class
-     */
-    public static GUIOutput getInstance() {
-        if(instance == null){
-            instance = new GUIOutput();
-        }
-        return instance;
-    }
 
     /**
      * App should only run once

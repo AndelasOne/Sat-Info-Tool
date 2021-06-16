@@ -33,6 +33,7 @@ public class TestComposite {
     public static void printTree(AbstractNode<String> node) {
         List<Leaf<String>> leafs = node.getLeafs();
         List<Composite<String>> composites = node.getComposites();
+        System.out.println("+" + node.getValue());
         for (Leaf<String> leaf : leafs) {
             System.out.println("- " + leaf.getValue());
         }

@@ -11,9 +11,9 @@ import java.util.ArrayList;
  **/
 
 public class ConfigData {
-    private final AggregateConfig plugins;
-    private final AggregateConfig output;
-    private final String dataPath;
+    final AggregateConfig plugins;
+    final AggregateConfig output;
+    final String dataPath;
 
     public ConfigData(AggregateConfig plugins, AggregateConfig output, String dataPath) {
         this.plugins = plugins;
@@ -23,11 +23,12 @@ public class ConfigData {
 
     public static ConfigData importConfig(String configPath) {
         // parse json and create Config Object
-
-        return null;
+        AggregateConfig plugins = new AggregateConfig("out/artifacts/Sat_Tool_jar/Sat_Tool.jar", "plugins.GermanChannels");
+        AggregateConfig output = new AggregateConfig("out/artifacts/Sat_Tool_jar/Sat_Tool.jar", "outputs.GUIOutput");
+        return new ConfigData(plugins, output, "test");
     }
 
-    public ArrayList<Satellite> importSatData(String dataPath) {
+    public ArrayList<Satellite> importSatData() {
         // parse sat data and create List of Satellite Objects
 
         return null;

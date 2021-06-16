@@ -7,8 +7,8 @@ package dhbw.swe;
  * Copyright (c) 2021 DHBW Stuttgart
  **/
 public class AggregateConfig {
-    private final String path;
-    private final String className;
+    final String path;
+    final String className;
 
     public AggregateConfig(String path, String className) {
         this.path = path;

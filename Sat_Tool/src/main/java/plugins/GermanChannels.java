@@ -15,6 +15,6 @@ import dhbw.swe.IPlugin;
 public class GermanChannels implements IPlugin {
     @Override
     public AbstractNode<String> filter(AbstractNode<String> input) {
-        return null;
+        return input;
     }
 }
