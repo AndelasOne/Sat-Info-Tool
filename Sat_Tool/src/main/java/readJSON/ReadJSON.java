@@ -11,11 +11,12 @@ import java.util.ArrayList;
 
 
 public class ReadJSON {
+    /**
+     * create array of all satellites
+     * @param file satellite json file
+     * @return array of satellites
+     */
     public static ArrayList<Satellite> createSatelliteArray(String file) {
-        /**
-         * create array of all satellites
-         */
-
         JSONParser parser = new JSONParser();
 
         try (FileReader reader = new FileReader(file)) {
@@ -39,10 +40,13 @@ public class ReadJSON {
         return null;
     }
 
+    /**
+     * create JSONArray of channels for all Satellites
+     * @param satellite satellite json-object
+     * @return satellite object
+     */
     private static Satellite parseSatellite(JSONObject satellite) {
-        /**
-         * create JSONArray of channels for all Satellites
-         */
+
         String pol = (String) satellite.get("pol");
         String sat = (String) satellite.get("sat");
         String orbital = (String) satellite.get("orbital");
@@ -60,6 +64,11 @@ public class ReadJSON {
         return new Satellite(pol, sat, orbital, freq, sym, channelArray);
     }
 
+    /**
+     * parse single channel of json-object
+     * @param channel json-object
+     * @return channel object
+     */
     private static Channel parseChannel(JSONObject channel){
         String sid = (String) channel.get("sid");
         String type = (String) channel.get("type");
@@ -73,15 +82,7 @@ public class ReadJSON {
         String res = (String) channel.get("res");
         System.out.printf("---* Name: %-25s - Compression: %-10s Encryption: %-8s  Type %-8s %n", name, compression, enc, type);
 
-        Channel channelObject = new Channel(sid,type,name, v_pid, a_pid, compression, url, enc, pckg, res );
-        return channelObject;
+        return new Channel(sid,type,name, v_pid, a_pid, compression, url, enc, pckg, res );
     }
-
-    private static void parseChannels() {
-
-
-    }
-
-
 
 }

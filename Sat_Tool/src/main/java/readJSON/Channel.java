@@ -1,11 +1,12 @@
-package readJSON;
-
 /**
  * @author : Andreas Weber, Philip Linkewitz, Marissa Eichhorn
  * @matrikelnummern: 1540399, 3306922, 4249633
  * @created : 16.06.2021, Mittwoch
  * Copyright (c) 2021 DHBW Stuttgart
  **/
+package readJSON;
+
+
 public class Channel {
     final String sid;
     final String type;

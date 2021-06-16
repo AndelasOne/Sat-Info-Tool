@@ -1,6 +1,9 @@
 package dhbw.swe;
 
+import readJSON.ReadJSON;
+import readJSON.Satellite;
 import java.util.ArrayList;
+import static readJSON.ReadJSON.createSatelliteArray;
 
 /**
  * @author : Andreas Weber, Philip Linkewitz, Marissa Eichhorn
@@ -15,23 +18,30 @@ public class ConfigData {
     final AggregateConfig output;
     final String dataPath;
 
+
     public ConfigData(AggregateConfig plugins, AggregateConfig output, String dataPath) {
         this.plugins = plugins;
         this.output = output;
         this.dataPath = dataPath;
     }
 
+    /**
+     * parse json and create Config Object
+     * @param configPath path to config file
+     * @return data of config file
+     */
     public static ConfigData importConfig(String configPath) {
-        // parse json and create Config Object
         AggregateConfig plugins = new AggregateConfig("out/artifacts/Sat_Tool_jar/Sat_Tool.jar", "plugins.GermanChannels");
         AggregateConfig output = new AggregateConfig("out/artifacts/Sat_Tool_jar/Sat_Tool.jar", "outputs.GUIOutput");
         return new ConfigData(plugins, output, "test");
     }
 
+    /**
+     * parse sat data and create List of Satellite Objects
+     * @return satellite data
+     */
     public ArrayList<Satellite> importSatData() {
-        // parse sat data and create List of Satellite Objects
-
-        return null;
+        return createSatelliteArray(dataPath);
     }
 
 
