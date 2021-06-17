@@ -18,7 +18,7 @@ public class PrimaryController {
 
     private void buildTree(AbstractNode<String> data, TreeItem<String> root){
         for (Leaf<String> leaf: data.getLeafs()){
-            System.out.println(leaf.getValue());
+            //System.out.println(leaf.getValue());
             TreeItem<String> item = new TreeItem<>(leaf.getValue());
             root.getChildren().add(item);
         }

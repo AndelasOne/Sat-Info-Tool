@@ -32,7 +32,7 @@ public class CreateTree implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // only satellites with german channels
-        Composite<String> root = new Composite<>("Results: German Channels");
+        Composite<String> root = new Composite<>("Results: Unfiltered");
 
         for (Satellite sat:input
              ) {
