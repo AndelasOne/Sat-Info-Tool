@@ -8,16 +8,16 @@ package readJSON;
 
 
 public class Channel {
-    final String sid;
-    final String type;
-    final String name;
-    final String v_pid;
-    final String a_pid;
-    final String compression;
-    final String url;
-    final String enc;
-    final String pckg;
-    final String res;
+    public final String sid;
+    public final String type;
+    public final String name;
+    public final String v_pid;
+    public final String a_pid;
+    public final String compression;
+    public final String url;
+    public final String enc;
+    public final String pckg;
+    public final String res;
 
     public Channel(String sid, String type, String name, String v_pid, String a_pid, String compression, String url, String enc, String pckg, String res) {
         this.sid = sid;
