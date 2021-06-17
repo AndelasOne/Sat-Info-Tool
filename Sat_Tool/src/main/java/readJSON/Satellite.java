@@ -8,7 +8,8 @@
 
 package readJSON;
 
-import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class Satellite {
     public final String pol;
@@ -16,13 +17,13 @@ public class Satellite {
     public final String orbital;
     public final String sym;
     public final String freq;
-    final ArrayList<Channel> channels;
+    final List<Channel> channels;
 
-    public ArrayList<Channel> getChannels() {
-        return channels;
+    public List<Channel> getChannels() {
+        return Collections.unmodifiableList(channels);
     }
 
-    public Satellite(String pol, String sat, String orbital, String sym, String freq, ArrayList<Channel> channels) {
+    public Satellite(String pol, String sat, String orbital, String sym, String freq, List<Channel> channels) {
         this.pol = pol;
         this.sat = sat;
         this.orbital = orbital;
