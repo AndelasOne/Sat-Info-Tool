@@ -1,13 +1,14 @@
 package outputs;
 
-import java.io.IOException;
 import javafx.fxml.FXML;
-import outputs.App;
+import javafx.scene.control.Label;
 
 public class PrimaryController {
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    private Label label;
+
+    public void setString(String string){
+        label.setText(string);
     }
 }
