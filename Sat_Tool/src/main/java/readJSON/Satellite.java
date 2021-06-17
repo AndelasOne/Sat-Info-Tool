@@ -12,10 +12,20 @@ import java.util.ArrayList;
 
 public class Satellite {
     final String pol;
+
+    public String getSat() {
+        return sat;
+    }
+
     final String sat;
     final String orbital;
     final String sym;
     final String freq;
+
+    public ArrayList<Channel> getChannels() {
+        return channels;
+    }
+
     final ArrayList<Channel> channels;
 
     public Satellite(String pol, String sat, String orbital, String sym, String freq, ArrayList<Channel> channels) {
@@ -26,4 +36,6 @@ public class Satellite {
         this.freq = freq;
         this.channels = channels;
     }
+
+
 }
