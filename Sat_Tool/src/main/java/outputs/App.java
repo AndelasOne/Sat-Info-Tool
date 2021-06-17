@@ -8,7 +8,6 @@
 package outputs;
 
 import dhbw.swe.AbstractNode;
-import dhbw.swe.IOutput;
 import dhbw.swe.Main;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -43,6 +42,9 @@ public class App extends Application {
 
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        Parent parent = fxmlLoader.load();
+        PrimaryController controller = fxmlLoader.<PrimaryController>getController();
+        controller.setString(data.getValue());
+        return parent;
     }
 }
