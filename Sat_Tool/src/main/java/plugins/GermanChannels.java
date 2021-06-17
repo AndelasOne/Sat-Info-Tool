@@ -25,7 +25,7 @@ public class GermanChannels implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // only satellites with german channels
-        Composite<String> root = new Composite<>("Results");
+        Composite<String> root = new Composite<>("Results: ");
         String germanIdentifier = ".* ger";
 
         for (Satellite sat:input
