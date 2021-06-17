@@ -17,7 +17,7 @@ public class Satellite {
     public final String orbital;
     public final String sym;
     public final String freq;
-    final List<Channel> channels;
+    private final List<Channel> channels;
 
     public List<Channel> getChannels() {
         return Collections.unmodifiableList(channels);

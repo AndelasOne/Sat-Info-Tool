@@ -17,6 +17,7 @@ import readJSON.Channel;
 import readJSON.Satellite;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 
 public class GermanChannels implements IPlugin {
@@ -56,6 +57,8 @@ public class GermanChannels implements IPlugin {
     private void addObjectLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
         Field[] channelFields = obj.getClass().getDeclaredFields();
         for (Field f: channelFields){
+            int mod = f.getModifiers();
+            if (Modifier.isPrivate(mod)) continue;
             System.out.println(f.get(obj));
 
             Leaf<String> newLeaf = new Leaf<>((String) f.get(obj));
