@@ -16,7 +16,11 @@ public class Satellite {
     public final String orbital;
     public final String sym;
     public final String freq;
-    public final ArrayList<Channel> channels;
+    final ArrayList<Channel> channels;
+
+    public ArrayList<Channel> getChannels() {
+        return channels;
+    }
 
     public Satellite(String pol, String sat, String orbital, String sym, String freq, ArrayList<Channel> channels) {
         this.pol = pol;
@@ -26,4 +30,5 @@ public class Satellite {
         this.freq = freq;
         this.channels = channels;
     }
+
 }

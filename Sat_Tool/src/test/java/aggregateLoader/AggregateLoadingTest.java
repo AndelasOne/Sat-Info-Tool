@@ -24,6 +24,15 @@ public class AggregateLoadingTest {
     ConfigData config = ConfigData.importConfig(TEST1_CONFIG_PATH);
 
 
+    /**
+     * Test if reflection creates correct object that was defined in config file
+     * @throws MalformedURLException
+     * @throws ClassNotFoundException
+     * @throws InvocationTargetException
+     * @throws NoSuchMethodException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
     @Test
     public void testLoadingAggregate() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         IPlugin plugin = pluginLoader.loadClass(

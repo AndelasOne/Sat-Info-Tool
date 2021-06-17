@@ -12,5 +12,5 @@ import readJSON.Satellite;
 import java.util.ArrayList;
 
 public interface IPlugin {
-    AbstractNode<String> filter(ArrayList<Satellite> input);
+    AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException;
 }
