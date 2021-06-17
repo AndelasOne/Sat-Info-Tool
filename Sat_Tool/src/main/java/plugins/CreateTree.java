@@ -62,8 +62,8 @@ public class CreateTree implements IPlugin {
      * @throws IllegalAccessException
      */
     private void addObjectLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
-        Field[] channelFields = obj.getClass().getDeclaredFields();
-        for (Field f: channelFields){
+        Field[] fields = obj.getClass().getDeclaredFields();
+        for (Field f: fields){
             int mod = f.getModifiers();
             if (Modifier.isPrivate(mod)) continue;
 

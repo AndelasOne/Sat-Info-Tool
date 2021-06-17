@@ -55,8 +55,4 @@ public class Main {
         // output tree with output aggregate
         output.output(result);
     }
-
-    public static String getConfigPath() {
-        return CONFIG_PATH;
-    }
 }
