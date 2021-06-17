@@ -27,8 +27,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 1920, 1080);
+        scene = new Scene(loadFXML("primary"), 800, 600);
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 
@@ -43,8 +44,9 @@ public class App extends Application {
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         Parent parent = fxmlLoader.load();
-        PrimaryController controller = fxmlLoader.<PrimaryController>getController();
-        controller.setString(data.getValue());
+        PrimaryController controller = fxmlLoader.getController();
+        System.out.println(data.getValue());
+        controller.setData(data);
         return parent;
     }
 }
