@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class CreateTree implements IPlugin {
 
     /**
-     * Filter Method which only filters for german channels
+     * Aggregat that only creates a tree
      * @param input array list of satellites
      * @return Satellite Composite
      * @throws IllegalAccessException
@@ -67,7 +67,8 @@ public class CreateTree implements IPlugin {
             int mod = f.getModifiers();
             if (Modifier.isPrivate(mod)) continue;
 
-            Leaf<String> newLeaf = new Leaf<>((String) f.get(obj));
+            String fieldName = f.getName();
+            Leaf<String> newLeaf = new Leaf<>(fieldName+ ": " +(String) f.get(obj));
             composite.addLeaf(newLeaf);
         }
     }
