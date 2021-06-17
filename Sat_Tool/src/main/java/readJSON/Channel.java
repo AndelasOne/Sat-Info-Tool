@@ -31,44 +31,4 @@ public class Channel {
         this.pckg = pckg;
         this.res = res;
     }
-
-    public String getSid() {
-        return sid;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getV_pid() {
-        return v_pid;
-    }
-
-    public String getCompression() {
-        return compression;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public String getEnc() {
-        return enc;
-    }
-
-    public String getPckg() {
-        return pckg;
-    }
-
-    public String getRes() {
-        return res;
-    }
-
-    public String getA_pid() {
-        return a_pid;
-    }
 }

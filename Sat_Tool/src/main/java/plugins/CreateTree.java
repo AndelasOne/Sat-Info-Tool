@@ -20,7 +20,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 
-public class GermanChannels implements IPlugin {
+public class CreateTree implements IPlugin {
 
     /**
      * Filter Method which only filters for german channels
@@ -33,7 +33,6 @@ public class GermanChannels implements IPlugin {
 
         // only satellites with german channels
         Composite<String> root = new Composite<>("Results: German Channels");
-        String germanIdentifier = ".* ger";
 
         for (Satellite sat:input
              ) {
@@ -42,21 +41,16 @@ public class GermanChannels implements IPlugin {
             // iterate over channels of satellite
             for (Channel currentChannel:sat.getChannels()
                  ) {
-                // check for german channel
-                if (currentChannel.a_pid.matches(germanIdentifier)){
-                    // set channel name
-                    Composite<String> newChannelComposite = new Composite<>(currentChannel.name);
 
-                    // create channel with all leaves and add channel to satellite composite
-                    addObjectLeaves(newChannelComposite, currentChannel);
-                    newSatComposite.addComposite(newChannelComposite);
-                }
+                // set channel name
+                Composite<String> newChannelComposite = new Composite<>(currentChannel.name);
+
+                // create channel with all leaves and add channel to satellite composite
+                addObjectLeaves(newChannelComposite, currentChannel);
+                newSatComposite.addComposite(newChannelComposite);
             }
-            // check if to satComposite has channels
-            if (newSatComposite.getComposites().size() > 0){
-                addObjectLeaves(newSatComposite, sat);
-                root.addComposite(newSatComposite);
-            }
+            addObjectLeaves(newSatComposite, sat);
+            root.addComposite(newSatComposite);
         }
         return root;
     }
