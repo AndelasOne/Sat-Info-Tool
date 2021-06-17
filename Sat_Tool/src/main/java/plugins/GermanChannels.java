@@ -29,7 +29,7 @@ public class GermanChannels implements IPlugin {
 
         for (Satellite sat:input
              ) {
-            Composite<String> newSatComposite = new Composite<>(sat.getSat());
+            Composite<String> newSatComposite = new Composite<>(sat.sat);
 
             // iterate over channels of satellite
             for (Channel currentChannel:sat.getChannels()
