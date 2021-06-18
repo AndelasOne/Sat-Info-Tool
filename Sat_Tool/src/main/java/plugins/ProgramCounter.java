@@ -29,21 +29,18 @@ public class ProgramCounter implements IPlugin {
         ArrayList<Transponder> transponders = new ArrayList<>();
 
         // first iteration to get transponders
-        for (Satellite sat:input
-        ) {
+        for (Satellite sat : input) {
             int transponderIdx = containsTransponder(sat, transponders);
             Transponder transponder = new Transponder(sat.freq);
             if (transponderIdx == -1) {
                 transponders.add(transponder);
             }
             // iterate over channels of satellite and create Program List
-            for (Channel currentChannel:sat.getChannels()
-            ) {
+            for (Channel currentChannel : sat.getChannels()) {
                 int programIdx = containsProgramType(currentChannel, transponder.getPrograms());
-                if( programIdx != -1){
+                if (programIdx != -1) {
                     transponder.getPrograms().get(programIdx).increaseAmount(); // increase Amount of Programs
-                }
-                else{
+                } else {
                     Program program = new Program(currentChannel.type, sat.freq, 1);
                     transponder.appendProgram(program);
                 }
@@ -51,13 +48,11 @@ public class ProgramCounter implements IPlugin {
         }
 
         // second iteration to build up the composite tree
-        for (Satellite sat:input
-        ) {
-            Composite<String> newSatComposite = new Composite<>(sat.sat);
+        for (Satellite sat : input) {
+            Composite<String> newSatComposite = new Composite<>(sat.sat, key);
             addSatLeaves(newSatComposite, sat);
-            for (Transponder t:transponders
-                 ) {
-                Composite<String> newTransponderComposite = new Composite<>(sat.freq);
+            for (Transponder t : transponders) {
+                Composite<String> newTransponderComposite = new Composite<>(sat.freq, key);
                 addTransponderLeaves(newTransponderComposite, t.getPrograms());
 
                 // add transponder composite
@@ -68,12 +63,11 @@ public class ProgramCounter implements IPlugin {
         return root;
     }
 
-    private int containsTransponder(final Satellite satellite, final ArrayList<Transponder> transponder){
+    private int containsTransponder(final Satellite satellite, final ArrayList<Transponder> transponder) {
         int idx = 0;
-        for (Transponder t:transponder
-        ) {
+        for (Transponder t : transponder) {
             // check if type already exist in transponder arraylist
-            if (satellite.freq.equals(t.getFrequency())){
+            if (satellite.freq.equals(t.getFrequency())) {
                 return idx;
             }
             idx++;
@@ -81,12 +75,11 @@ public class ProgramCounter implements IPlugin {
         return -1;
     }
 
-    private int containsProgramType(final Channel channel, final ArrayList<Program> programs){
+    private int containsProgramType(final Channel channel, final ArrayList<Program> programs) {
         int idx = 0;
-        for (Program p:programs
-             ) {
+        for (Program p : programs) {
             // check if type already exist in program arraylist
-            if (channel.type.equals(p.getType())){
+            if (channel.type.equals(p.getType())) {
                 return idx;
             }
             idx++;
@@ -95,23 +88,23 @@ public class ProgramCounter implements IPlugin {
     }
 
     private void addTransponderLeaves(Composite<String> composite, ArrayList<Program> programs) {
-        for (Program p: programs){
-            Leaf<String> newLeaf = new Leaf<>(p.getType()+ ": " + p.getAmount());
+        for (Program p : programs) {
+            Leaf<String> newLeaf = new Leaf<>(p.getType() + ": " + p.getAmount());
             composite.addLeaf(newLeaf);
         }
     }
 
     private void addSatLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
-        for (Field f: fields){
+        for (Field f : fields) {
             int mod = f.getModifiers();
-            if (Modifier.isPrivate(mod))  continue; //skips channels
+            if (Modifier.isPrivate(mod))
+                continue; // skips channels
 
             String fieldName = f.getName();
-            Leaf<String> newLeaf = new Leaf<>(fieldName+ ": " + (String) f.get(obj));
+            Leaf<String> newLeaf = new Leaf<>(fieldName + ": " + (String) f.get(obj));
             composite.addLeaf(newLeaf);
         }
     }
 
 }
-
