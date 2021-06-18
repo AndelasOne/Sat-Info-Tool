@@ -24,7 +24,7 @@ public class ProgramCounter implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // count
-        Composite<String> root = new Composite<>("Results: ");
+        Composite<String> root = new Composite<>("Results: Program Counter");
 
         ArrayList<Transponder> transponders = new ArrayList<>();
 
