@@ -29,15 +29,15 @@ public class GermanChannels implements IPlugin {
      * @throws IllegalAccessException
      */
     @Override
-    public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
+    public AbstractNode<String, String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // only satellites with german channels
-        Composite<String> root = new Composite<>("Results: German Channels");
+        Composite<String, String> root = new Composite<>("satellites","Results: German Channels");
         String germanIdentifier = ".* ger";
 
         for (Satellite sat:input
              ) {
-            Composite<String> newSatComposite = new Composite<>(sat.sat);
+            Composite<String, String> newSatComposite = new Composite<>("channels", sat.sat);
 
             // iterate over channels of satellite
             for (Channel currentChannel:sat.getChannels()
@@ -45,7 +45,7 @@ public class GermanChannels implements IPlugin {
                 // check for german channel
                 if (currentChannel.a_pid.matches(germanIdentifier)){
                     // set channel name
-                    Composite<String> newChannelComposite = new Composite<>(currentChannel.name);
+                    Composite<String, String> newChannelComposite = new Composite<>("channels", currentChannel.name);
 
                     // create channel with all leaves and add channel to satellite composite
                     addObjectLeaves(newChannelComposite, currentChannel);
@@ -67,14 +67,15 @@ public class GermanChannels implements IPlugin {
      * @param obj that donates the values for the Composite
      * @throws IllegalAccessException
      */
-    private void addObjectLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
+    private void addObjectLeaves(Composite<String, String> composite, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field f: fields){
             int mod = f.getModifiers();
             if (Modifier.isPrivate(mod)) continue;
 
-            String fieldName = f.getName();
-            Leaf<String> newLeaf = new Leaf<>(fieldName+ ": " + (String) f.get(obj));
+            String key = f.getName();
+            String value = (String) f.get(obj);
+            Leaf<String, String> newLeaf = new Leaf<>(key,value);
             composite.addLeaf(newLeaf);
         }
     }

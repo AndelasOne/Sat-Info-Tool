@@ -1,7 +1,7 @@
 package dhbw.swe;
 
-import outputs.GUIOutput;
 import readJSON.Satellite;
+
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -50,7 +50,7 @@ public class Main {
 
         // convert satellite into tree -> Composite pattern and
         // filter tree with plugin aggregate
-        AbstractNode<String> result = plugin.filter(data);
+        AbstractNode<String, String> result = plugin.filter(data);
 
         // output tree with output aggregate
         output.output(result);

@@ -8,11 +8,18 @@
 
 package dhbw.swe;
 
-import java.util.List;
-
-public class Leaf<T> extends AbstractNode<T> {
-
-    public Leaf(T value) {
+public class Leaf<V> extends AbstractNode< V> {
+    public Leaf(V value) {
         super(value);
+    }
+
+    @Override
+    public boolean isLeaf() {
+        return true;
+    }
+
+    @Override
+    public boolean isComposite() {
+        return false;
     }
 }

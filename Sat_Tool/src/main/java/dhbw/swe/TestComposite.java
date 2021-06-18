@@ -11,9 +11,9 @@ import java.util.List;
 public class TestComposite {
     public static void main(String[] args) {
         System.out.println("Test Composite\n");
-        Composite<String> comp1 = new Composite<>("Satellit A");
-        Composite<String> comp11 = new Composite<>("Transponder A");
-        Composite<String> comp12 = new Composite<>("Transponder B");
+        Composite<String> comp1 = new Composite<>("Satellit A", key);
+        Composite<String> comp11 = new Composite<>("Transponder A", key);
+        Composite<String> comp12 = new Composite<>("Transponder B", key);
         Leaf<String> leaf111 = new Leaf<>("20 Radio Programme");
         Leaf<String> leaf112 = new Leaf<>("10 Fernseh Programme");
         Leaf<String> leaf121 = new Leaf<>("1 Radio Programme");
@@ -30,15 +30,15 @@ public class TestComposite {
         printTree(comp1);
     }
 
-    public static void printTree(AbstractNode<String> node) {
-        List<Leaf<String>> leafs = node.getLeafs();
-        List<Composite<String>> composites = node.getComposites();
-        System.out.println("+" + node.getValue());
-        for (Leaf<String> leaf : leafs) {
-            System.out.println("- " + leaf.getValue());
+    public static void printTree(AbstractNode<String, String> node) {
+        List<Leaf<String, String>> leafs = node.getLeafs();
+        List<Composite<String, String>> composites = node.getComposites();
+        System.out.println("+" + node.value);
+        for (Leaf<String, String> leaf : leafs) {
+            System.out.println("- " + leaf.value);
         }
-        for (Composite<String> composite : composites) {
-            System.out.println("+ " + composite.getValue());
+        for (Composite<String, String> composite : composites) {
+            System.out.println("+ " + composite.value);
             printTree(composite);
         }
     }

@@ -43,7 +43,7 @@ public class CreateTree implements IPlugin {
                  ) {
 
                 // set channel name
-                Composite<String> newChannelComposite = new Composite<>(currentChannel.name);
+                Composite<String> newChannelComposite = new Composite<>( currentChannel.name);
 
                 // create channel with all leaves and add channel to satellite composite
                 addObjectLeaves(newChannelComposite, currentChannel);
@@ -61,15 +61,16 @@ public class CreateTree implements IPlugin {
      * @param obj that donates the values for the Composite
      * @throws IllegalAccessException
      */
-    private void addObjectLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
+    private void addObjectLeaves(Composite< String> composite, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field f: fields){
             int mod = f.getModifiers();
             if (Modifier.isPrivate(mod)) continue;
 
-            String fieldName = f.getName();
-            Leaf<String> newLeaf = new Leaf<>(fieldName+ ": " +(String) f.get(obj));
-            composite.addLeaf(newLeaf);
+            String key = f.getName();
+            String value = (String) f.get(obj);
+            Leaf< String> newLeaf = new Leaf<>(value);
+            composite.addLeaf(key, newLeaf);
         }
     }
 

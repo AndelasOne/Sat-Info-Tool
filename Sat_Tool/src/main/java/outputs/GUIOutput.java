@@ -20,7 +20,7 @@ public class GUIOutput implements IOutput {
      * @param input Filtered data as composite
      */
     @Override
-    public void output(AbstractNode<String> input) {
+    public void output(AbstractNode<String, String> input) {
         if (!running) {
             App.setData(input);
             Application.launch(App.class);

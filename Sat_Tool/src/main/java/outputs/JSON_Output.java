@@ -13,7 +13,7 @@ import dhbw.swe.IOutput;
 
 public class JSON_Output implements IOutput {
     @Override
-    public void output(AbstractNode<String> input) {
+    public void output(AbstractNode<String, String> input) {
 
     }
 }

@@ -23,7 +23,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-    private static AbstractNode<String> data;
+    private static AbstractNode<String, String> data;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,7 +33,7 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void setData(AbstractNode<String> input){
+    public static void setData(AbstractNode<String, String> input){
         data = input;
     }
 
@@ -45,7 +45,6 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         Parent parent = fxmlLoader.load();
         PrimaryController controller = fxmlLoader.getController();
-        System.out.println(data.getValue());
         controller.setData(data);
         return parent;
     }
