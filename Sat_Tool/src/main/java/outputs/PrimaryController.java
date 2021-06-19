@@ -10,6 +10,11 @@ public class PrimaryController {
 
     public TreeView<String> treeView;
 
+    /**
+     * Set data on the controller
+     * automatically updates the view
+     * @param data data to show
+     */
     public void setData(AbstractNode<String> data) {
         TreeItem<String> root = new TreeItem<>();
         buildTree(data, root);
@@ -17,6 +22,11 @@ public class PrimaryController {
         treeView.setRoot(root);
     }
 
+    /**
+     * Recursively build the Treeview
+     * @param data Node to represent
+     * @param root the next root node
+     */
     private void buildTree(AbstractNode<String> data, TreeItem<String> root) {
         if (data.isLeaf()) {
             TreeItem<String> item = new TreeItem<>(data.getValue());

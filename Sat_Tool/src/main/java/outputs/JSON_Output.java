@@ -19,6 +19,10 @@ import java.io.IOException;
 import java.util.Map;
 
 public class JSON_Output implements IOutput {
+    /**
+     * Generate a json file
+     * @param input (filtered) input data
+     */
     @Override
     public void output(AbstractNode<String> input) {
         try {
@@ -42,6 +46,11 @@ public class JSON_Output implements IOutput {
         }
     }
 
+    /**
+     * recursively build a JSON Object from input node
+     * @param input a node Tree representing the data
+     * @return JSON Object holding the data
+     */
     private JSONObject buildJsonObject(AbstractNode<String> input) {
         if (input.isLeaf()) {
             JSONObject json = new JSONObject();
@@ -78,6 +87,12 @@ public class JSON_Output implements IOutput {
             return new JSONObject();
         }
     }
+
+    /**
+     * recursively build an JSON array
+     * @param input a node tree representing the data
+     * @return a JSON array holding the data
+     */
     private JSONArray buildJsonArray(AbstractNode<String> input){
         if (input.isLeaf()) {
             JSONArray json = new JSONArray();
