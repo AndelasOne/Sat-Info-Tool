@@ -11,18 +11,20 @@ package plugins;
 import dhbw.swe.*;
 import readJSON.Channel;
 import readJSON.Satellite;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class ProgramCounter implements IPlugin {
+    /**
+     * Filter Method which counts the different program types of a transponder and a corresponding satellite
+     * @param input a list of satellites
+     * @return
+     * @throws IllegalAccessException
+     */
     @Override
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
-        // count
         StructNode<String> root = new StructNode<>();
         ArrayNode<String> satelliteComposites = new ArrayNode<>();
         root.addPair("Results: Program Counter", satelliteComposites);
@@ -52,7 +54,7 @@ public class ProgramCounter implements IPlugin {
             }
         }
 
-        // second iteration to build up the composite tree
+        // second iteration to build up the tree
         for (String satName:satellites.keySet()
         ) {
 

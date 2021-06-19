@@ -1,10 +1,12 @@
-package aggregateLoader;
+package loading.tests;
 import dhbw.swe.ClassLoader;
 import dhbw.swe.ConfigData;
 import dhbw.swe.IPlugin;
 import org.junit.Assert;
 import org.junit.Test;
 import plugins.GermanChannels;
+
+
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 
@@ -14,6 +16,7 @@ import java.net.MalformedURLException;
  * @created : 16.06.2021, Mittwoch
  * Copyright (c) 2021 DHBW Stuttgart
  **/
+
 
 public class AggregateLoadingTest {
     private final String TEST1_CONFIG_PATH = "src/main/resources/test1config.json";

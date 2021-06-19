@@ -1,6 +1,4 @@
 package plugins;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -16,7 +14,10 @@ public class Transponder {
     private HashMap<String, Integer> programs;
 
 
-
+    /**
+     *
+     * @param frequency of transponder
+     */
     public Transponder(String frequency) {
         this.frequency = frequency;
         this.programs = new HashMap<String, Integer>();
