@@ -12,5 +12,11 @@ import readJSON.Satellite;
 import java.util.ArrayList;
 
 public interface IPlugin {
+    /**
+     * Filters or analyzes a list of satellites.
+     * @param input a list of satellites
+     * @return a Tree like structure which represents the data to display to the user
+     * @throws IllegalAccessException
+     */
     AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException;
 }

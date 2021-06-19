@@ -25,27 +25,36 @@ public class App extends Application {
     private static Scene scene;
     private static AbstractNode<String> data;
 
+    /**
+     * start the app
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 800, 600);
+        scene = new Scene(loadFXML(), 800, 600);
         stage.setScene(scene);
         stage.setMaximized(true);
         stage.show();
     }
 
+    /**
+     * set data to show in GUI
+     * @param input data to show
+     */
     public static void setData(AbstractNode<String> input){
         data = input;
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
-    }
-
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
+    /**
+     * load the fxml file to show in the GUI
+     * @return Parent object
+     * @throws IOException
+     */
+    private static Parent loadFXML() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("primary" + ".fxml"));
         Parent parent = fxmlLoader.load();
         PrimaryController controller = fxmlLoader.getController();
-        System.out.println(data.getValue());
         controller.setData(data);
         return parent;
     }

@@ -2,24 +2,20 @@
  * @author : Andreas Weber, Philip Linkewitz, Marissa Eichhorn
  * @matrikelnummern: 1540399, 3306922, 4249633
  * @created : 12.06.2021, Samstag
- *
+ * <p>
  * Copyright (c) 2021 DHBW Stuttgart
  **/
-
 package dhbw.swe;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Leaf<V> extends AbstractNode< V> {
-    V value;
+public class StructNode<V> extends AbstractNode<V> {
+    private final Map<String, AbstractNode<V>> nodeMap = new HashMap<>();
 
-    /**
-     *
-     * @param value value to store in this leaf
-     */
-    public Leaf(V value) {
-        this.value = value;
+    public void addPair(String key, AbstractNode<V> value) {
+        nodeMap.put(key, value);
     }
 
     @Override
@@ -34,21 +30,21 @@ public class Leaf<V> extends AbstractNode< V> {
 
     @Override
     public Map<String, AbstractNode<V>> getStructPairs() {
-        return null;
+        return nodeMap;
     }
 
     @Override
     public V getValue() {
-        return value;
+        return null;
     }
 
     @Override
     public boolean isLeaf() {
-        return true;
+        return false;
     }
 
     @Override
     public boolean isStruct() {
-        return false;
+        return true;
     }
 }

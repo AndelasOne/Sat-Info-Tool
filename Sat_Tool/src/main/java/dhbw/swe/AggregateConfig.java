@@ -11,6 +11,11 @@ public class AggregateConfig {
     final String path;
     final String className;
 
+    /**
+     *
+     * @param path path to the jar file in which the Aggregate is included
+     * @param className the class name or class path where the class can be found. E.g. plugins.GermanChannels
+     */
     public AggregateConfig(String path, String className) {
         this.path = path;
         this.className = className;

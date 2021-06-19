@@ -7,43 +7,41 @@
 
 package dhbw.swe;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Abstract Node is an abstract class used to realise composite pattern
- * @param <T> value used in a leaf or a composite
+ *
+ * @param <V> value used in a leaf or a composite
  */
-public abstract class AbstractNode<T> {
-    private T value;
-    List<Leaf<T>> leafs = new ArrayList<>();
-    List<Composite<T>> composites = new ArrayList<>();
-
-    AbstractNode(T value){
-        this.value = value;
-    }
+public abstract class AbstractNode<V> {
+    /**
+     * @return true if this node is a leaf node
+     */
+    public abstract boolean isLeaf();
 
     /**
-     * get all existing leafs of a composite
-     * @return list of leafs
+     * @return true of this node is a struct node
      */
-    public List<Leaf<T>> getLeafs(){
-        return leafs;
-    }
+    public abstract boolean isStruct();
 
     /**
-     * get all existing composite-children of a composite
-     * @return list of composites
+     * @return true if this node is an array node
      */
-    public List<Composite<T>> getComposites(){
-        return composites;
-    }
+    public abstract boolean isArray();
 
     /**
-     * get the value of a leaf / composite
-     * @return value
+     * @return array elements if this is a leaf node else null
      */
-    public T getValue(){
-        return this.value;
-    }
+    public abstract List<AbstractNode<V>> getArrayElements();
+
+    /**
+     * @return Map of Key - Node pairs if this node is a struct node
+     */
+    public abstract Map<String, AbstractNode<V>> getStructPairs();
+
+    /**
+     * @return value if this node is a leaf node
+     */
+    public abstract V getValue();
 }

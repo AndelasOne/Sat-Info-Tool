@@ -17,7 +17,7 @@ public class GUIOutput implements IOutput {
 
     /**
      * App should only run once
-     * @param input Filtered data as composite
+     * @param input Filtered data as composite / node tree
      */
     @Override
     public void output(AbstractNode<String> input) {

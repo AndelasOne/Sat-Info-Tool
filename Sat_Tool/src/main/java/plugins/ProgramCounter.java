@@ -9,7 +9,7 @@
 package plugins;
 
 import dhbw.swe.AbstractNode;
-import dhbw.swe.Composite;
+import dhbw.swe.StructNode;
 import dhbw.swe.IPlugin;
 import dhbw.swe.Leaf;
 import readJSON.Channel;
@@ -26,7 +26,7 @@ public class ProgramCounter implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // count
-        Composite<String> root = new Composite<>("Results: Program Counter");
+        StructNode<String> root = new StructNode<>("Results: Program Counter");
 
 
         HashMap<String, HashMap<String, Transponder>> satellites  = new HashMap<>(); // Map of sat-name and transponders
@@ -85,4 +85,3 @@ public class ProgramCounter implements IPlugin {
     
 
 }
-

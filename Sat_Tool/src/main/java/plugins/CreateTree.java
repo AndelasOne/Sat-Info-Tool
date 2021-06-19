@@ -9,10 +9,7 @@
 package plugins;
 
 
-import dhbw.swe.AbstractNode;
-import dhbw.swe.Composite;
-import dhbw.swe.IPlugin;
-import dhbw.swe.Leaf;
+import dhbw.swe.*;
 import readJSON.Channel;
 import readJSON.Satellite;
 
@@ -32,44 +29,47 @@ public class CreateTree implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // only satellites with german channels
-        Composite<String> root = new Composite<>("Results: Unfiltered");
+        StructNode<String> root = new StructNode<>();
+        ArrayNode<String> satellites = new ArrayNode<>();
+        root.addPair("satellites", satellites);
 
         for (Satellite sat:input
              ) {
-            Composite<String> newSatComposite = new Composite<>(sat.sat);
-
+            StructNode<String> satellite = new StructNode<>();
+            addObjectLeaves(satellite, sat);
+            ArrayNode<String> channels = new ArrayNode<>();
+            satellite.addPair("channels", channels);
             // iterate over channels of satellite
             for (Channel currentChannel:sat.getChannels()
                  ) {
 
-                // set channel name
-                Composite<String> newChannelComposite = new Composite<>(currentChannel.name);
+                StructNode<String> channel = new StructNode<>();
 
                 // create channel with all leaves and add channel to satellite composite
-                addObjectLeaves(newChannelComposite, currentChannel);
-                newSatComposite.addComposite(newChannelComposite);
+                addObjectLeaves(channel, currentChannel);
+                channels.addElement(channel);
             }
-            addObjectLeaves(newSatComposite, sat);
-            root.addComposite(newSatComposite);
+            satellites.addElement(satellite);
         }
         return root;
     }
 
     /**
      * Adds Field values of Object to a Composite
-     * @param composite that gets appended by leaves
+     * @param node that gets appended by leaves
      * @param obj that donates the values for the Composite
      * @throws IllegalAccessException
      */
-    private void addObjectLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
+    private void addObjectLeaves(StructNode<String> node, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field f: fields){
             int mod = f.getModifiers();
             if (Modifier.isPrivate(mod)) continue;
 
-            String fieldName = f.getName();
-            Leaf<String> newLeaf = new Leaf<>(fieldName+ ": " +(String) f.get(obj));
-            composite.addLeaf(newLeaf);
+            String key = f.getName();
+            String value = (String) f.get(obj);
+            Leaf<String> newLeaf = new Leaf<>(value);
+            node.addPair(key, newLeaf);
         }
     }
 

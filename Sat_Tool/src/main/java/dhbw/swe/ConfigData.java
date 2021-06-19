@@ -20,7 +20,12 @@ public class ConfigData {
     final AggregateConfig output;
     final String dataPath;
 
-
+    /**
+     *
+     * @param plugins Configuration for the plugin to use
+     * @param output Configuariotn for the output to use
+     * @param dataPath path to a json file with satellites
+     */
     public ConfigData(AggregateConfig plugins, AggregateConfig output, String dataPath) {
         this.plugin = plugins;
         this.output = output;
