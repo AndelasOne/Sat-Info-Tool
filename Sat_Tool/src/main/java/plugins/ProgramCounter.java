@@ -8,10 +8,7 @@
 
 package plugins;
 
-import dhbw.swe.AbstractNode;
-import dhbw.swe.StructNode;
-import dhbw.swe.IPlugin;
-import dhbw.swe.Leaf;
+import dhbw.swe.*;
 import readJSON.Channel;
 import readJSON.Satellite;
 
@@ -26,8 +23,9 @@ public class ProgramCounter implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // count
-        StructNode<String> root = new StructNode<>("Results: Program Counter");
-
+        StructNode<String> root = new StructNode<>();
+        ArrayNode<String> satelliteComposites = new ArrayNode<>();
+        root.addPair("Results: Program Counter", satelliteComposites);
 
         HashMap<String, HashMap<String, Transponder>> satellites  = new HashMap<>(); // Map of sat-name and transponders
         HashMap<String, Transponder> transponders = new HashMap<>(); // Map of freq and transponder
@@ -57,31 +55,48 @@ public class ProgramCounter implements IPlugin {
         // second iteration to build up the composite tree
         for (String satName:satellites.keySet()
         ) {
-            Composite<String> newSatComposite = new Composite<>(satName);
+
+            StructNode<String> newSatComposite = new StructNode<>();
+            ArrayNode<String> transponderComposites = new ArrayNode<>();
+            newSatComposite.addPair(satName, transponderComposites);
+
             HashMap<String, Transponder>  transponderHashMap = satellites.get(satName);
             for (String freq: transponderHashMap.keySet()
                  ) {
-                Composite<String> newTransponderComposite = new Composite<>("freq: " + freq);
+
+                StructNode<String> newTransponderComposite = new StructNode<>();
+                ArrayNode<String> programComposite = new ArrayNode<>();
+
+                newTransponderComposite.addPair("freq" + freq, programComposite);
                 Transponder  transponder = transponders.get(freq);
 
                 // add leaves of transponder
                 addTransponderLeaves(newTransponderComposite, transponder.getPrograms());
 
                 // add transponder composite to sat composite
-                newSatComposite.addComposite(newTransponderComposite);
+                transponderComposites.addElement(newTransponderComposite);
             }
-            root.addComposite(newSatComposite);
+            satelliteComposites.addElement(newSatComposite);
         }
         return root;
     }
 
-    private void addTransponderLeaves(Composite<String> composite, HashMap<String, Integer> programs) {
+
+    /**
+     * Adds Field values of Object to a Struct Node
+     * @param composite struct node to append leaves
+     * @param programs of composite
+     */
+    private void addTransponderLeaves(StructNode<String> composite, HashMap<String, Integer> programs) {
         for (String type: programs.keySet()){
             int count = programs.get(type);
-            Leaf<String> newLeaf = new Leaf<>(type+ ": " + count);
-            composite.addLeaf(newLeaf);
+
+            Leaf<String> newLeaf = new Leaf<>(Integer.toString(count));
+            composite.addPair(type, newLeaf);
         }
     }
-    
+
+
+
 
 }

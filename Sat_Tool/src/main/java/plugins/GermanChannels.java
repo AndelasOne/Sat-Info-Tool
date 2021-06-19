@@ -61,7 +61,7 @@ public class GermanChannels implements IPlugin {
     }
 
     /**
-     * Adds Field values of Object to a Composite
+     * Adds Field values of Object to a Struct Node
      * @param node that gets appended by leaves
      * @param obj that donates the values for the Composite
      * @throws IllegalAccessException
