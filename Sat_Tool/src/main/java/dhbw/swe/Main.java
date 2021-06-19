@@ -50,7 +50,7 @@ public class Main {
 
         // convert satellite into tree -> Composite pattern and
         // filter tree with plugin aggregate
-        AbstractNode<String, String> result = plugin.filter(data);
+        AbstractNode<String> result = plugin.filter(data);
 
         // output tree with output aggregate
         output.output(result);

@@ -9,7 +9,7 @@
 package plugins;
 
 import dhbw.swe.AbstractNode;
-import dhbw.swe.Composite;
+import dhbw.swe.StructNode;
 import dhbw.swe.IPlugin;
 import dhbw.swe.Leaf;
 import readJSON.Channel;
@@ -24,7 +24,7 @@ public class ProgramCounter implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // count
-        Composite<String> root = new Composite<>("Results: Program Counter");
+        StructNode<String> root = new StructNode<>("Results: Program Counter");
 
         ArrayList<Transponder> transponders = new ArrayList<>();
 
@@ -53,11 +53,11 @@ public class ProgramCounter implements IPlugin {
         // second iteration to build up the composite tree
         for (Satellite sat:input
         ) {
-            Composite<String> newSatComposite = new Composite<>(sat.sat);
+            StructNode<String> newSatComposite = new StructNode<>(sat.sat);
             addSatLeaves(newSatComposite, sat);
             for (Transponder t:transponders
                  ) {
-                Composite<String> newTransponderComposite = new Composite<>(sat.freq);
+                StructNode<String> newTransponderComposite = new StructNode<>(sat.freq);
                 addTransponderLeaves(newTransponderComposite, t.getPrograms());
 
                 // add transponder composite
@@ -94,14 +94,14 @@ public class ProgramCounter implements IPlugin {
         return -1;
     }
 
-    private void addTransponderLeaves(Composite<String> composite, ArrayList<Program> programs) {
+    private void addTransponderLeaves(StructNode<String> composite, ArrayList<Program> programs) {
         for (Program p: programs){
             Leaf<String> newLeaf = new Leaf<>(p.getType()+ ": " + p.getAmount());
             composite.addLeaf(newLeaf);
         }
     }
 
-    private void addSatLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
+    private void addSatLeaves(StructNode<String> composite, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field f: fields){
             int mod = f.getModifiers();

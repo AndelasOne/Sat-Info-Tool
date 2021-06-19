@@ -11,35 +11,24 @@ import java.util.*;
 
 /**
  * Abstract Node is an abstract class used to realise composite pattern
+ *
  * @param <V> value used in a leaf or a composite
  */
 public abstract class AbstractNode<V> {
-    public final V value;
     protected final Map<String, Leaf<V>> leafMap = new HashMap<>();
-    protected final Map<String, Composite<V>> compositeMap = new HashMap<>();
+    protected final Map<String, StructNode<V>> compositeMap = new HashMap<>();
 
     protected Set<String> keys = new HashSet<>();
 
     public abstract boolean isLeaf();
-    public abstract boolean isComposite();
 
-    protected AbstractNode(V value) {
-        this.value = value;
-    }
+    public abstract boolean isStruct();
 
-    /**
-     * get all existing leafs of a composite
-     * @return list of leafs
-     */
-    public Map<String, Leaf<V>> getLeafs(){
-        return leafMap;
-    }
+    public abstract boolean isArray();
 
-    /**
-     * get all existing composite-children of a composite
-     * @return list of composites
-     */
-    public Map<String, Composite<V>> getComposites(){
-        return compositeMap;
-    }
+    public abstract List<AbstractNode<V>> getArrayElements();
+
+    public abstract Map<String, AbstractNode<V>> getStructPairs();
+
+    public abstract V getValue();
 }

@@ -23,7 +23,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
-    private static AbstractNode<String, String> data;
+    private static AbstractNode<String> data;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,7 +33,7 @@ public class App extends Application {
         stage.show();
     }
 
-    public static void setData(AbstractNode<String, String> input){
+    public static void setData(AbstractNode<String> input){
         data = input;
     }
 

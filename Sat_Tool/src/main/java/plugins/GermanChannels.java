@@ -9,10 +9,7 @@
 package plugins;
 
 
-import dhbw.swe.AbstractNode;
-import dhbw.swe.Composite;
-import dhbw.swe.IPlugin;
-import dhbw.swe.Leaf;
+import dhbw.swe.*;
 import readJSON.Channel;
 import readJSON.Satellite;
 
@@ -29,33 +26,35 @@ public class GermanChannels implements IPlugin {
      * @throws IllegalAccessException
      */
     @Override
-    public AbstractNode<String, String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
+    public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // only satellites with german channels
-        Composite<String, String> root = new Composite<>("satellites","Results: German Channels");
+        StructNode<String> root = new StructNode<>();
+        ArrayNode<String> satellites = new ArrayNode<>();
+        root.addPair("Satellites", satellites);
         String germanIdentifier = ".* ger";
 
         for (Satellite sat:input
              ) {
-            Composite<String, String> newSatComposite = new Composite<>("channels", sat.sat);
-
+            StructNode<String> satellite = new StructNode<>();
+            addObjectLeaves(satellite, sat);
+            ArrayNode<String> channels = new ArrayNode<>();
+            satellite.addPair("channels", channels);
             // iterate over channels of satellite
             for (Channel currentChannel:sat.getChannels()
                  ) {
                 // check for german channel
                 if (currentChannel.a_pid.matches(germanIdentifier)){
                     // set channel name
-                    Composite<String, String> newChannelComposite = new Composite<>("channels", currentChannel.name);
+                    StructNode<String> channel = new StructNode<>();
 
                     // create channel with all leaves and add channel to satellite composite
-                    addObjectLeaves(newChannelComposite, currentChannel);
-                    newSatComposite.addComposite(newChannelComposite);
+                    addObjectLeaves(channel, currentChannel);
+                    channels.addElement(channel);
                 }
             }
-            // check if to satComposite has channels
-            if (newSatComposite.getComposites().size() > 0){
-                addObjectLeaves(newSatComposite, sat);
-                root.addComposite(newSatComposite);
+            if (channels.getSize() != 0){
+                satellites.addElement(satellite);
             }
         }
         return root;
@@ -63,11 +62,11 @@ public class GermanChannels implements IPlugin {
 
     /**
      * Adds Field values of Object to a Composite
-     * @param composite that gets appended by leaves
+     * @param node that gets appended by leaves
      * @param obj that donates the values for the Composite
      * @throws IllegalAccessException
      */
-    private void addObjectLeaves(Composite<String, String> composite, Object obj) throws IllegalAccessException {
+    private void addObjectLeaves(StructNode<String> node, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field f: fields){
             int mod = f.getModifiers();
@@ -75,8 +74,8 @@ public class GermanChannels implements IPlugin {
 
             String key = f.getName();
             String value = (String) f.get(obj);
-            Leaf<String, String> newLeaf = new Leaf<>(key,value);
-            composite.addLeaf(newLeaf);
+            Leaf<String> newLeaf = new Leaf<>(value);
+            node.addPair(key, newLeaf);
         }
     }
 
