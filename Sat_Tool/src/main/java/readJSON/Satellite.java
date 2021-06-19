@@ -23,6 +23,15 @@ public class Satellite {
         return Collections.unmodifiableList(channels);
     }
 
+    /**
+     *
+     * @param pol Polarization
+     * @param sat Name of the satellite
+     * @param orbital orbital
+     * @param sym symbol rate
+     * @param freq frequency
+     * @param channels list of channels
+     */
     public Satellite(String pol, String sat, String orbital, String sym, String freq, List<Channel> channels) {
         this.pol = pol;
         this.sat = sat;

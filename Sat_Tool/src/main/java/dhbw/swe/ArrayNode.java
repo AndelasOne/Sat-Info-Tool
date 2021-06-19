@@ -8,11 +8,19 @@ public class ArrayNode<V> extends AbstractNode<V> {
 
     private final List<AbstractNode<V>> elements = new ArrayList<>();
 
-    public void addElement(AbstractNode<V> element){
+    /**
+     * add a node to the array
+     *
+     * @param element the node to store
+     */
+    public void addElement(AbstractNode<V> element) {
         elements.add(element);
     }
 
-    public int getSize(){
+    /**
+     * @return number of elements
+     */
+    public int getSize() {
         return elements.size();
     }
 

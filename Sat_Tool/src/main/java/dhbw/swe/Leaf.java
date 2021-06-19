@@ -14,6 +14,10 @@ import java.util.Map;
 public class Leaf<V> extends AbstractNode< V> {
     V value;
 
+    /**
+     *
+     * @param value value to store in this leaf
+     */
     public Leaf(V value) {
         this.value = value;
     }

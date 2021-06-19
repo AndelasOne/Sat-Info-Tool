@@ -9,5 +9,9 @@
 package dhbw.swe;
 
 public interface IOutput {
+    /**
+     * Function accepts data in a Tree like shape and outputs it to the user. Ex. GUI or JSON file
+     * @param input data to display
+     */
     void output(AbstractNode<String> input);
 }

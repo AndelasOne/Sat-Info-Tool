@@ -15,20 +15,33 @@ import java.util.*;
  * @param <V> value used in a leaf or a composite
  */
 public abstract class AbstractNode<V> {
-    protected final Map<String, Leaf<V>> leafMap = new HashMap<>();
-    protected final Map<String, StructNode<V>> compositeMap = new HashMap<>();
-
-    protected Set<String> keys = new HashSet<>();
-
+    /**
+     * @return true if this node is a leaf node
+     */
     public abstract boolean isLeaf();
 
+    /**
+     * @return true of this node is a struct node
+     */
     public abstract boolean isStruct();
 
+    /**
+     * @return true if this node is an array node
+     */
     public abstract boolean isArray();
 
+    /**
+     * @return array elements if this is a leaf node else null
+     */
     public abstract List<AbstractNode<V>> getArrayElements();
 
+    /**
+     * @return Map of Key - Node pairs if this node is a struct node
+     */
     public abstract Map<String, AbstractNode<V>> getStructPairs();
 
+    /**
+     * @return value if this node is a leaf node
+     */
     public abstract V getValue();
 }
