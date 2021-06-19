@@ -1,7 +1,7 @@
 package dhbw.swe;
 
-import outputs.GUIOutput;
 import readJSON.Satellite;
+
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;

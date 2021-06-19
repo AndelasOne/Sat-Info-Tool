@@ -45,7 +45,6 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
         Parent parent = fxmlLoader.load();
         PrimaryController controller = fxmlLoader.getController();
-        System.out.println(data.getValue());
         controller.setData(data);
         return parent;
     }

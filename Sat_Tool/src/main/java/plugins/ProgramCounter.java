@@ -9,7 +9,7 @@
 package plugins;
 
 import dhbw.swe.AbstractNode;
-import dhbw.swe.Composite;
+import dhbw.swe.StructNode;
 import dhbw.swe.IPlugin;
 import dhbw.swe.Leaf;
 import readJSON.Channel;
@@ -24,7 +24,7 @@ public class ProgramCounter implements IPlugin {
     public AbstractNode<String> filter(ArrayList<Satellite> input) throws IllegalAccessException {
 
         // count
-        Composite<String> root = new Composite<>("Results: Program Counter");
+        StructNode<String> root = new StructNode<>("Results: Program Counter");
 
         ArrayList<Transponder> transponders = new ArrayList<>();
 
@@ -94,7 +94,7 @@ public class ProgramCounter implements IPlugin {
         }
     }
 
-    private void addSatLeaves(Composite<String> composite, Object obj) throws IllegalAccessException {
+    private void addSatLeaves(StructNode<String> composite, Object obj) throws IllegalAccessException {
         Field[] fields = obj.getClass().getDeclaredFields();
         for (Field f : fields) {
             int mod = f.getModifiers();
