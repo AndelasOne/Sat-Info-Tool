@@ -31,7 +31,7 @@ public class CreateTree implements IPlugin {
         // only satellites with german channels
         StructNode<String> root = new StructNode<>();
         ArrayNode<String> satellites = new ArrayNode<>();
-        root.addPair("Satellites", satellites);
+        root.addPair("satellites", satellites);
 
         for (Satellite sat:input
              ) {

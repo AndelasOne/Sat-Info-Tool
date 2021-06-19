@@ -31,7 +31,7 @@ public class GermanChannels implements IPlugin {
         // only satellites with german channels
         StructNode<String> root = new StructNode<>();
         ArrayNode<String> satellites = new ArrayNode<>();
-        root.addPair("Satellites", satellites);
+        root.addPair("Satellites with german channels", satellites);
         String germanIdentifier = ".* ger";
 
         for (Satellite sat:input
@@ -39,7 +39,7 @@ public class GermanChannels implements IPlugin {
             StructNode<String> satellite = new StructNode<>();
             addObjectLeaves(satellite, sat);
             ArrayNode<String> channels = new ArrayNode<>();
-            satellite.addPair("channels", channels);
+            satellite.addPair("german channels", channels);
             // iterate over channels of satellite
             for (Channel currentChannel:sat.getChannels()
                  ) {
