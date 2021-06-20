@@ -13,7 +13,8 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class JSON_OutputTest {
     private final JSON_Output output = new JSON_Output();
@@ -32,7 +33,7 @@ class JSON_OutputTest {
         jArrayNode.add("30");
         arrayNode.addElement(new Leaf<>("40"));
         jArrayNode.add("40");
-        StructNode<String > structInArray = new StructNode<>();
+        StructNode<String> structInArray = new StructNode<>();
         JSONObject jStructInArray = new JSONObject();
         structInArray.addPair("leaf1", new Leaf<>("50"));
         jStructInArray.put("leaf1", "50");

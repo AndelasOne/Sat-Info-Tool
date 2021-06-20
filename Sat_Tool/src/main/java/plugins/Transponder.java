@@ -11,7 +11,7 @@ public class Transponder {
 
 
     private final String frequency;
-    private HashMap<String, Integer> programs;
+    private final HashMap<String, Integer> programs;
 
 
     /**
