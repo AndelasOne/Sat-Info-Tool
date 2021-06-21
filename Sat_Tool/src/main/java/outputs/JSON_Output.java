@@ -40,6 +40,7 @@ public class JSON_Output implements IOutput {
                 System.out.println("Write to file");
                 jsonObject.writeJSONString(writer);
             }
+            writer.close();
             System.out.println("Finished");
         } catch (IOException e) {
             System.out.println("Could not write to file");

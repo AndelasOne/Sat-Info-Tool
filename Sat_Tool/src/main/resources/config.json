@@ -6,7 +6,7 @@
     "path": "out/artifacts/Sat_Tool_jar/Sat_Tool.jar"
   },
   "output": {
-    "classname": "outputs.GUIOutput",
+    "classname": "outputs.JSON_Output",
     "path": "out/artifacts/Sat_Tool_jar/Sat_Tool.jar"
   }
 }
