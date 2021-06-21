@@ -1,10 +1,14 @@
 package loading.tests;
 import dhbw.swe.ClassLoader;
 import dhbw.swe.ConfigData;
+import dhbw.swe.IOutput;
 import dhbw.swe.IPlugin;
 import org.junit.Assert;
 import org.junit.Test;
+import outputs.GUIOutput;
+import outputs.JSON_Output;
 import plugins.GermanChannels;
+import plugins.ProgramCounter;
 
 
 import java.lang.reflect.InvocationTargetException;
@@ -19,16 +23,15 @@ import java.net.MalformedURLException;
 
 
 public class AggregateLoadingTest {
-    private final String TEST1_CONFIG_PATH = "src/main/resources/test1config.json";
+    private final String germanChannel_UI_Config_PATH = "src/test/resources/germanChannel_UI_Config.json";
+    private final String programCounter_JSON_Config_PATH = "src/test/resources/programCounter_JSON_Config.json";
+
     // init loaders
     ClassLoader<IPlugin> pluginLoader = new ClassLoader<>();
-
-    // import config data
-    ConfigData config = ConfigData.importConfig(TEST1_CONFIG_PATH);
-
+    ClassLoader<IOutput> outputLoader = new ClassLoader<>();
 
     /**
-     * Test if reflection creates correct object that was defined in config file
+     * Test if reflection creates german channel plugin object that was defined in the config file
      * @throws MalformedURLException
      * @throws ClassNotFoundException
      * @throws InvocationTargetException
@@ -37,12 +40,46 @@ public class AggregateLoadingTest {
      * @throws IllegalAccessException
      */
     @Test
-    public void testLoadingAggregate() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void loadGermanChannelsPlugin() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        // import config data
+        ConfigData config = ConfigData.importConfig(germanChannel_UI_Config_PATH);
+
         IPlugin plugin = pluginLoader.loadClass(
                 config.getPlugin().getPath(), config.getPlugin().getClassName(),
                 IPlugin.class);
 
-        // make sure that plugin is instance of GermanChannels -> see test1config file
+        // make sure that plugin is instance of GermanChannels -> see germanChannels_UI_Config file
         Assert.assertTrue(plugin instanceof GermanChannels);
+    }
+
+    @Test
+    public void loadProgramCounterPlugin() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        ConfigData config = ConfigData.importConfig(programCounter_JSON_Config_PATH);
+        IPlugin plugin = pluginLoader.loadClass(
+                config.getPlugin().getPath(), config.getPlugin().getClassName(),
+                IPlugin.class);
+        Assert.assertTrue(plugin instanceof ProgramCounter);
+    }
+
+    @Test
+    public void loadGuiOutput() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        ConfigData config = ConfigData.importConfig(germanChannel_UI_Config_PATH);
+
+        IOutput output = outputLoader.loadClass(
+                config.getPlugin().getPath(), config.getOutput().getClassName(),
+                IOutput.class);
+
+        Assert.assertTrue(output instanceof GUIOutput);
+    }
+
+    @Test
+    public void loadJsonOutput() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+        ConfigData config = ConfigData.importConfig(programCounter_JSON_Config_PATH);
+
+        IOutput output = outputLoader.loadClass(
+                config.getPlugin().getPath(), config.getOutput().getClassName(),
+                IOutput.class);
+
+        Assert.assertTrue(output instanceof JSON_Output);
     }
 }

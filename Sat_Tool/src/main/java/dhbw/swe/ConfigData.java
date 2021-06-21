@@ -15,7 +15,6 @@ import static readJSON.ReadJSON.createSatelliteArray;
 
 public class ConfigData {
 
-
     final AggregateConfig plugin;
     final AggregateConfig output;
     final String dataPath;
@@ -63,6 +62,10 @@ public class ConfigData {
      */
     public AggregateConfig getOutput() {
         return output;
+    }
+
+    public String getDataPath() {
+        return dataPath;
     }
 
 }
