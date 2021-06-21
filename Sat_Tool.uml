@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>E:/Philip/Projects/Uni/Sem4/SWE/Sat-Info-Tool/Sat_Tool</OriginalElement>
+  <nodes>
+    <node x="0.0" y="473.0">outputs.PrimaryController</node>
+    <node x="195.17882898351604" y="397.0">readJSON.ReadJSON</node>
+    <node x="1778.9392456501828" y="397.0">composite.StructNodeTest</node>
+    <node x="473.2034684065935" y="164.0">dhbw.swe.ClassLoader</node>
+    <node x="1605.1892456501828" y="397.0">composite.ArrayNodeTest</node>
+    <node x="1882.3924994276554" y="164.0">dhbw.swe.Leaf</node>
+    <node x="56.75" y="164.0">dhbw.swe.ConfigData</node>
+    <node x="500.05763507326014" y="0.0">readJSON.Channel</node>
+    <node x="1341.595238095238" y="164.0">outputs.JSON_Output</node>
+    <node x="0.0" y="81.0">dhbw.swe.AggregateConfig</node>
+    <node x="336.17882898351604" y="397.0">loading.tests.AggregateLoadingTest</node>
+    <node x="1696.6424994276554" y="164.0">dhbw.swe.StructNode</node>
+    <node x="1419.1892456501828" y="397.0">outputs.JSON_OutputTest</node>
+    <node x="969.167138850733" y="164.0">outputs.GUIOutput</node>
+    <node x="1523.6424994276554" y="164.0">dhbw.swe.ArrayNode</node>
+    <node x="588.3454956501826" y="397.0">dhbw.swe.Main</node>
+    <node x="1952.9392456501828" y="397.0">composite.LeafTest</node>
+    <node x="1111.167138850733" y="164.0">plugins.Transponder</node>
+    <node x="1077.9709678342488" y="397.0">plugins.GermanChannels</node>
+    <node x="652.2034684065935" y="164.0">dhbw.swe.IPlugin</node>
+    <node x="896.9709678342488" y="397.0">plugins.ProgramCounter</node>
+    <node x="940.8229166666667" y="81.0">dhbw.swe.IOutput</node>
+    <node x="1542.4166666666667" y="0.0">dhbw.swe.AbstractNode</node>
+    <node x="693.3454956501826" y="397.0">plugins.CreateTree</node>
+    <node x="1554.6424994276554" y="81.0">outputs.App</node>
+    <node x="187.0" y="81.0">readJSON.Satellite</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="outputs.JSON_OutputTest" target="outputs.JSON_Output" relationship="TO_ONE">
+      <point x="-41.5" y="-15.5" />
+      <point x="1460.6892456501828" y="346.0" />
+      <point x="1411.095238095238" y="346.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="10.0625" y="-15.5" />
+      <point x="987.5334678342488" y="326.0" />
+      <point x="1256.667138850733" y="326.0" />
+      <point x="1256.667138850733" y="61.0" />
+      <point x="991.8229166666667" y="61.0" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="dhbw.swe.ArrayNode" relationship="CREATE">
+      <point x="30.1875" y="-15.5" />
+      <point x="1007.6584678342488" y="366.0" />
+      <point x="1099.8454956501828" y="366.0" />
+      <point x="1099.8454956501828" y="246.0" />
+      <point x="1561.8924994276554" y="246.0" />
+      <point x="-38.25" y="15.5" />
+    </edge>
+    <edge source="readJSON.Satellite" target="readJSON.Channel" relationship="TO_MANY">
+      <point x="-26.5" y="-15.5" />
+      <point x="213.5" y="51.0" />
+      <point x="526.3076350732601" y="51.0" />
+      <point x="-26.25" y="15.5" />
+    </edge>
+    <edge source="readJSON.ReadJSON" target="dhbw.swe.ConfigData" relationship="DEPENDENCY">
+      <point x="15.125" y="-15.5" />
+      <point x="270.80382898351604" y="376.0" />
+      <point x="346.3284684065935" y="376.0" />
+      <point x="346.3284684065935" y="336.0" />
+      <point x="88.75" y="336.0" />
+      <point x="-32.0" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="plugins.Transponder" relationship="CREATE">
+      <point x="-10.0625" y="-15.5" />
+      <point x="967.4084678342488" y="316.0" />
+      <point x="1178.667138850733" y="316.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="composite.ArrayNodeTest" target="dhbw.swe.ArrayNode" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="1680.6892456501828" y="366.0" />
+      <point x="1638.3924994276554" y="366.0" />
+      <point x="38.25" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="23.285714285714278" y="-15.5" />
+      <point x="1182.7566821199632" y="336.0" />
+      <point x="1319.198388850733" y="336.0" />
+      <point x="1319.198388850733" y="61.0" />
+      <point x="991.8229166666667" y="61.0" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+    <edge source="readJSON.Satellite" target="readJSON.Channel" relationship="DEPENDENCY">
+      <point x="26.5" y="-15.5" />
+      <point x="266.5" y="61.0" />
+      <point x="597.5576350732601" y="61.0" />
+      <point x="597.5576350732601" y="51.0" />
+      <point x="578.8076350732601" y="51.0" />
+      <point x="26.25" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="dhbw.swe.Leaf" relationship="CREATE">
+      <point x="70.4375" y="-15.5" />
+      <point x="1047.9084678342488" y="356.0" />
+      <point x="1529.1178170787541" y="356.0" />
+      <point x="1529.1178170787541" y="226.0" />
+      <point x="1909.6424994276554" y="226.0" />
+      <point x="-27.25" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.ConfigData" target="dhbw.swe.AggregateConfig" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="120.75" y="143.0" />
+      <point x="125.25" y="143.0" />
+      <point x="41.75" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="dhbw.swe.Leaf" relationship="CREATE">
+      <point x="69.85714285714286" y="-15.5" />
+      <point x="1229.3281106913917" y="356.0" />
+      <point x="1529.1178170787541" y="356.0" />
+      <point x="1529.1178170787541" y="226.0" />
+      <point x="1909.6424994276554" y="226.0" />
+      <point x="-27.25" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Main" target="dhbw.swe.IOutput" relationship="DEPENDENCY">
+      <point x="35.416666666666686" y="-15.5" />
+      <point x="666.2621623168493" y="366.0" />
+      <point x="958.667138850733" y="366.0" />
+      <point x="958.667138850733" y="143.0" />
+      <point x="966.3229166666667" y="143.0" />
+      <point x="-25.5" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Main" target="dhbw.swe.IPlugin" relationship="DEPENDENCY">
+      <point x="7.083333333333343" y="-15.5" />
+      <point x="637.9288289835159" y="336.0" />
+      <point x="700.7034684065935" y="336.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.ArrayNode" target="dhbw.swe.AbstractNode" relationship="TO_MANY">
+      <point x="-38.25" y="-15.5" />
+      <point x="1561.8924994276554" y="143.0" />
+      <point x="1544.1424994276554" y="143.0" />
+      <point x="1544.1424994276554" y="61.0" />
+      <point x="1619.8924994276554" y="61.0" />
+      <point x="1619.8924994276554" y="51.0" />
+      <point x="1628.9166666666667" y="51.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.StructNode" target="dhbw.swe.AbstractNode" relationship="TO_MANY">
+      <point x="-39.0" y="-15.5" />
+      <point x="1735.6424994276554" y="133.0" />
+      <point x="1696.7451350732601" y="133.0" />
+      <point x="1696.7451350732601" y="61.0" />
+      <point x="1619.8924994276554" y="61.0" />
+      <point x="1619.8924994276554" y="51.0" />
+      <point x="1628.9166666666667" y="51.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="composite.LeafTest" target="dhbw.swe.Leaf" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="2006.4392456501828" y="376.0" />
+      <point x="1964.1424994276554" y="376.0" />
+      <point x="27.25" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Main" target="dhbw.swe.ClassLoader" relationship="CREATE">
+      <point x="-7.083333333333314" y="-15.5" />
+      <point x="623.7621623168493" y="296.0" />
+      <point x="592.4534684065935" y="296.0" />
+      <point x="39.75" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Main" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="21.25" y="-15.5" />
+      <point x="652.0954956501826" y="346.0" />
+      <point x="930.3229166666667" y="346.0" />
+      <point x="930.3229166666667" y="61.0" />
+      <point x="991.8229166666667" y="61.0" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="readJSON.Channel" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="1159.4709678342488" y="256.0" />
+      <point x="919.3229166666667" y="256.0" />
+      <point x="919.3229166666667" y="61.0" />
+      <point x="597.5576350732601" y="61.0" />
+      <point x="597.5576350732601" y="51.0" />
+      <point x="578.8076350732601" y="51.0" />
+      <point x="26.25" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="readJSON.Satellite" relationship="DEPENDENCY">
+      <point x="-70.4375" y="-15.5" />
+      <point x="907.0334678342488" y="286.0" />
+      <point x="410.0159684065935" y="286.0" />
+      <point x="410.0159684065935" y="143.0" />
+      <point x="420.04166666666674" y="143.0" />
+      <point x="420.04166666666674" y="133.0" />
+      <point x="240.0" y="133.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.IPlugin" target="readJSON.Satellite" relationship="DEPENDENCY">
+      <point x="-24.25" y="-15.5" />
+      <point x="676.4534684065935" y="143.0" />
+      <point x="420.04166666666674" y="143.0" />
+      <point x="420.04166666666674" y="133.0" />
+      <point x="240.0" y="133.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="dhbw.swe.StructNode" relationship="CREATE">
+      <point x="50.3125" y="-15.5" />
+      <point x="1027.7834678342488" y="346.0" />
+      <point x="1378.6424994276554" y="346.0" />
+      <point x="1378.6424994276554" y="236.0" />
+      <point x="1735.6424994276554" y="236.0" />
+      <point x="-39.0" y="15.5" />
+    </edge>
+    <edge source="outputs.App" target="dhbw.swe.AbstractNode" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="1594.6424994276554" y="61.0" />
+      <point x="1619.8924994276554" y="61.0" />
+      <point x="1619.8924994276554" y="51.0" />
+      <point x="1628.9166666666667" y="51.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="readJSON.ReadJSON" target="readJSON.Satellite" relationship="DEPENDENCY">
+      <point x="45.375" y="-15.5" />
+      <point x="301.05382898351604" y="366.0" />
+      <point x="359.87721783424877" y="366.0" />
+      <point x="359.87721783424877" y="143.0" />
+      <point x="420.04166666666674" y="143.0" />
+      <point x="420.04166666666674" y="133.0" />
+      <point x="240.0" y="133.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="readJSON.ReadJSON" target="dhbw.swe.AggregateConfig" relationship="DEPENDENCY">
+      <point x="-45.375" y="-15.5" />
+      <point x="210.30382898351604" y="376.0" />
+      <point x="46.25" y="376.0" />
+      <point x="46.25" y="133.0" />
+      <point x="41.75" y="133.0" />
+      <point x="-41.75" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.ConfigData" target="dhbw.swe.AggregateConfig" relationship="DEPENDENCY">
+      <point x="-42.66666666666666" y="-15.5" />
+      <point x="78.08333333333337" y="143.0" />
+      <point x="46.25" y="143.0" />
+      <point x="46.25" y="133.0" />
+      <point x="41.75" y="133.0" />
+      <point x="-41.75" y="15.5" />
+    </edge>
+    <edge source="loading.tests.AggregateLoadingTest" target="dhbw.swe.IPlugin" relationship="TO_ONE">
+      <point x="68.0" y="-15.5" />
+      <point x="506.17882898351604" y="326.0" />
+      <point x="668.3701350732601" y="326.0" />
+      <point x="-32.33333333333334" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.IPlugin" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="24.25" y="-15.5" />
+      <point x="724.9534684065935" y="133.0" />
+      <point x="930.3229166666667" y="133.0" />
+      <point x="930.3229166666667" y="61.0" />
+      <point x="991.8229166666667" y="61.0" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="dhbw.swe.IPlugin" relationship="REALIZATION">
+      <point x="-50.3125" y="-15.5" />
+      <point x="927.1584678342488" y="376.0" />
+      <point x="758.5784684065935" y="376.0" />
+      <point x="758.5784684065935" y="276.0" />
+      <point x="733.0368017399269" y="276.0" />
+      <point x="32.33333333333337" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Main" target="dhbw.swe.ConfigData" relationship="DEPENDENCY">
+      <point x="-35.41666666666666" y="-15.5" />
+      <point x="595.4288289835159" y="376.0" />
+      <point x="346.3284684065935" y="376.0" />
+      <point x="346.3284684065935" y="336.0" />
+      <point x="88.75" y="336.0" />
+      <point x="-32.0" y="15.5" />
+    </edge>
+    <edge source="outputs.GUIOutput" target="dhbw.swe.IOutput" relationship="REALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="1030.167138850733" y="133.0" />
+      <point x="1017.3229166666667" y="133.0" />
+      <point x="25.5" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.StructNode" target="dhbw.swe.AbstractNode" relationship="GENERALIZATION">
+      <point x="39.0" y="-15.5" />
+      <point x="1813.6424994276554" y="143.0" />
+      <point x="1780.1424994276554" y="143.0" />
+      <point x="1780.1424994276554" y="61.0" />
+      <point x="1814.4166666666667" y="61.0" />
+      <point x="1814.4166666666667" y="51.0" />
+      <point x="1686.5833333333335" y="51.0" />
+      <point x="57.66666666666663" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="dhbw.swe.IPlugin" relationship="REALIZATION">
+      <point x="-69.85714285714286" y="-15.5" />
+      <point x="1089.613824977106" y="376.0" />
+      <point x="758.5784684065935" y="376.0" />
+      <point x="758.5784684065935" y="276.0" />
+      <point x="733.0368017399269" y="276.0" />
+      <point x="32.33333333333337" y="15.5" />
+    </edge>
+    <edge source="outputs.JSON_OutputTest" target="dhbw.swe.StructNode" relationship="TO_ONE">
+      <point x="41.5" y="-15.5" />
+      <point x="1543.6892456501828" y="376.0" />
+      <point x="1855.9392456501828" y="376.0" />
+      <point x="1855.9392456501828" y="216.0" />
+      <point x="1813.6424994276554" y="216.0" />
+      <point x="39.0" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.ArrayNode" target="dhbw.swe.AbstractNode" relationship="GENERALIZATION">
+      <point x="38.25" y="-15.5" />
+      <point x="1638.3924994276554" y="143.0" />
+      <point x="1707.7451350732601" y="143.0" />
+      <point x="1707.7451350732601" y="61.0" />
+      <point x="1814.4166666666667" y="61.0" />
+      <point x="1814.4166666666667" y="51.0" />
+      <point x="1686.5833333333335" y="51.0" />
+      <point x="57.66666666666663" y="15.5" />
+    </edge>
+    <edge source="outputs.JSON_Output" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="34.75" y="-15.5" />
+      <point x="1445.845238095238" y="61.0" />
+      <point x="991.8229166666667" y="61.0" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Main" target="readJSON.Satellite" relationship="DEPENDENCY">
+      <point x="-21.25" y="-15.5" />
+      <point x="609.5954956501826" y="306.0" />
+      <point x="393.8650555173996" y="306.0" />
+      <point x="393.8650555173996" y="143.0" />
+      <point x="420.04166666666674" y="143.0" />
+      <point x="420.04166666666674" y="133.0" />
+      <point x="240.0" y="133.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="composite.StructNodeTest" target="dhbw.swe.StructNode" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="1855.9392456501828" y="216.0" />
+      <point x="1813.6424994276554" y="216.0" />
+      <point x="39.0" y="15.5" />
+    </edge>
+    <edge source="plugins.ProgramCounter" target="readJSON.Channel" relationship="DEPENDENCY">
+      <point x="-30.1875" y="-15.5" />
+      <point x="947.2834678342488" y="276.0" />
+      <point x="892.8229166666667" y="276.0" />
+      <point x="892.8229166666667" y="61.0" />
+      <point x="597.5576350732601" y="61.0" />
+      <point x="597.5576350732601" y="51.0" />
+      <point x="578.8076350732601" y="51.0" />
+      <point x="26.25" y="15.5" />
+    </edge>
+    <edge source="plugins.CreateTree" target="dhbw.swe.IPlugin" relationship="REALIZATION">
+      <point x="-31.0" y="-15.5" />
+      <point x="724.3454956501826" y="376.0" />
+      <point x="758.5784684065935" y="376.0" />
+      <point x="758.5784684065935" y="276.0" />
+      <point x="733.0368017399269" y="276.0" />
+      <point x="32.33333333333337" y="15.5" />
+    </edge>
+    <edge source="readJSON.ReadJSON" target="readJSON.Channel" relationship="DEPENDENCY">
+      <point x="-15.125" y="-15.5" />
+      <point x="240.55382898351604" y="356.0" />
+      <point x="303.5" y="356.0" />
+      <point x="303.5" y="61.0" />
+      <point x="597.5576350732601" y="61.0" />
+      <point x="597.5576350732601" y="51.0" />
+      <point x="578.8076350732601" y="51.0" />
+      <point x="26.25" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="readJSON.Satellite" relationship="DEPENDENCY">
+      <point x="-46.571428571428584" y="-15.5" />
+      <point x="1112.8995392628203" y="266.0" />
+      <point x="780.0784684065935" y="266.0" />
+      <point x="780.0784684065935" y="143.0" />
+      <point x="420.04166666666674" y="143.0" />
+      <point x="420.04166666666674" y="133.0" />
+      <point x="240.0" y="133.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="outputs.JSON_Output" target="dhbw.swe.IOutput" relationship="REALIZATION">
+      <point x="-34.75" y="-15.5" />
+      <point x="1376.345238095238" y="143.0" />
+      <point x="1030.167138850733" y="143.0" />
+      <point x="1030.167138850733" y="133.0" />
+      <point x="1017.3229166666667" y="133.0" />
+      <point x="25.5" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.Leaf" target="dhbw.swe.AbstractNode" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="1936.8924994276554" y="61.0" />
+      <point x="1814.4166666666667" y="61.0" />
+      <point x="1814.4166666666667" y="51.0" />
+      <point x="1686.5833333333335" y="51.0" />
+      <point x="57.66666666666663" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="dhbw.swe.StructNode" relationship="CREATE">
+      <point x="46.571428571428555" y="-15.5" />
+      <point x="1206.0423964056774" y="346.0" />
+      <point x="1378.6424994276554" y="346.0" />
+      <point x="1378.6424994276554" y="236.0" />
+      <point x="1735.6424994276554" y="236.0" />
+      <point x="-39.0" y="15.5" />
+    </edge>
+    <edge source="loading.tests.AggregateLoadingTest" target="dhbw.swe.ClassLoader" relationship="TO_ONE">
+      <point x="0.0" y="-15.5" />
+      <point x="438.17882898351604" y="316.0" />
+      <point x="512.9534684065935" y="316.0" />
+      <point x="-39.75" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.ConfigData" target="readJSON.Satellite" relationship="DEPENDENCY">
+      <point x="42.66666666666666" y="-15.5" />
+      <point x="163.41666666666663" y="143.0" />
+      <point x="420.04166666666674" y="143.0" />
+      <point x="420.04166666666674" y="133.0" />
+      <point x="240.0" y="133.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="plugins.CreateTree" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="31.0" y="-15.5" />
+      <point x="786.3454956501826" y="356.0" />
+      <point x="930.3229166666667" y="356.0" />
+      <point x="930.3229166666667" y="61.0" />
+      <point x="991.8229166666667" y="61.0" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+    <edge source="plugins.GermanChannels" target="dhbw.swe.ArrayNode" relationship="CREATE">
+      <point x="-23.285714285714306" y="-15.5" />
+      <point x="1136.1852535485345" y="366.0" />
+      <point x="1099.8454956501828" y="366.0" />
+      <point x="1099.8454956501828" y="246.0" />
+      <point x="1561.8924994276554" y="246.0" />
+      <point x="-38.25" y="15.5" />
+    </edge>
+    <edge source="loading.tests.AggregateLoadingTest" target="dhbw.swe.ConfigData" relationship="TO_ONE">
+      <point x="-68.0" y="-15.5" />
+      <point x="370.17882898351604" y="346.0" />
+      <point x="152.75" y="346.0" />
+      <point x="32.0" y="15.5" />
+    </edge>
+    <edge source="dhbw.swe.IOutput" target="dhbw.swe.AbstractNode" relationship="DEPENDENCY">
+      <point x="0.0" y="-15.5" />
+      <point x="991.8229166666667" y="51.0" />
+      <point x="1571.2500000000002" y="51.0" />
+      <point x="-57.66666666666666" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5499999999999999" showDependencies="true" x="367.0000000000001" y="364.99999999999994" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
