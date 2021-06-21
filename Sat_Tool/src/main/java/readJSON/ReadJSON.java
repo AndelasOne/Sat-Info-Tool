@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class ReadJSON {
     /**
      * create array of all satellites
+     *
      * @param file satellite json file
      * @return array of satellites
      */
@@ -28,7 +29,7 @@ public class ReadJSON {
             JSONArray jSatArray = (JSONArray) obj;
 
             ArrayList<Satellite> satArray = new ArrayList<>();
-            for (Object jSat:jSatArray
+            for (Object jSat : jSatArray
             ) {
                 satArray.add(parseSatellite((JSONObject) jSat));
             }
@@ -44,38 +45,31 @@ public class ReadJSON {
 
     /**
      * read data config file
+     *
      * @param file path to config file
      * @return ConfigData Object with information about program configuration
      */
-    public static ConfigData readConfigData(String file) {
+    public static ConfigData readConfigData(String file) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
 
-        try (FileReader reader = new FileReader(file)) {
-            //Read JSON file
-            JSONObject obj = (JSONObject) parser.parse(reader);
+        FileReader reader = new FileReader(file);
+        //Read JSON file
+        JSONObject obj = (JSONObject) parser.parse(reader);
 
-            JSONObject jPluginConfig = (JSONObject) obj.get("plugins");
-            AggregateConfig pluginConfig = createAggregateConfig(jPluginConfig);
+        JSONObject jPluginConfig = (JSONObject) obj.get("plugins");
+        AggregateConfig pluginConfig = createAggregateConfig(jPluginConfig);
 
-            JSONObject jOutputConfig = (JSONObject) obj.get("output");
-            AggregateConfig outputConfig = createAggregateConfig(jOutputConfig);
+        JSONObject jOutputConfig = (JSONObject) obj.get("output");
+        AggregateConfig outputConfig = createAggregateConfig(jOutputConfig);
 
-            String satDataPath = (String) obj.get("data");
+        String satDataPath = (String) obj.get("data");
 
-            return new ConfigData(pluginConfig, outputConfig, satDataPath);
-        }
-
-
-
-        //exception which occurs when an input/output operations fails / parse operations fails
-        catch (IOException | ParseException message) {
-            message.printStackTrace();
-        }
-        return null;
+        return new ConfigData(pluginConfig, outputConfig, satDataPath);
     }
 
     /**
      * create aggregate config object
+     *
      * @param conf config json object
      * @return aggregate object
      */
@@ -88,6 +82,7 @@ public class ReadJSON {
 
     /**
      * create JSONArray of channels for all Satellites
+     *
      * @param satellite satellite json-object
      * @return satellite object
      */
@@ -103,8 +98,8 @@ public class ReadJSON {
 
         JSONArray jChannels = (JSONArray) satellite.get("channels");
         ArrayList<Channel> channelArray = new ArrayList<>();
-        for (Object jChannel:jChannels
-             ) {
+        for (Object jChannel : jChannels
+        ) {
             channelArray.add(parseChannel((JSONObject) jChannel));
         }
         return new Satellite(pol, sat, orbital, freq, sym, channelArray);
@@ -112,10 +107,11 @@ public class ReadJSON {
 
     /**
      * parse single channel of json-object
+     *
      * @param channel json-object
      * @return channel object
      */
-    private static Channel parseChannel(JSONObject channel){
+    private static Channel parseChannel(JSONObject channel) {
         String sid = (String) channel.get("sid");
         String type = (String) channel.get("type");
         String name = (String) channel.get("name");
@@ -128,7 +124,7 @@ public class ReadJSON {
         String res = (String) channel.get("res");
         //System.out.printf("---* Name: %-25s - Compression: %-10s Encryption: %-8s  Type %-8s %n", name, compression, enc, type);
 
-        return new Channel(sid,type,name, v_pid, a_pid, compression, url, enc, pckg, res );
+        return new Channel(sid, type, name, v_pid, a_pid, compression, url, enc, pckg, res);
     }
 
 }

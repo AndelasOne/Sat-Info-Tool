@@ -1,7 +1,9 @@
 package dhbw.swe;
 
+import org.json.simple.parser.ParseException;
 import readJSON.Satellite;
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -18,7 +20,7 @@ public class Main {
 
     /**
      * Used patterns:
-     *  - Reflection to create different aggregates for filtering and to output sat data
+     * - Reflection to create different aggregates for filtering and to output sat data
      *
      * @param args opt. arguments
      * @throws MalformedURLException
@@ -35,24 +37,33 @@ public class Main {
         ClassLoader<IOutput> outputLoader = new ClassLoader<>();
 
         // import config data
-        ConfigData config = ConfigData.importConfig(CONFIG_PATH);
+        try {
+            String path;
+            if (args.length > 0) {
+                path = args[0];
+            } else {
+                path = CONFIG_PATH;
+            }
+            ConfigData config = ConfigData.importConfig(path);
 
-        // create plugin depending on config file -> Reflection pattern used
-        IPlugin plugin = pluginLoader.loadClass(
-                config.plugin.path, config.plugin.className,
-                IPlugin.class);
-        // create output depending on config file -> Reflection pattern used
-        IOutput  output = outputLoader.loadClass(config.output.path, config.output.className, IOutput.class);
+            // create plugin depending on config file -> Reflection pattern used
+            IPlugin plugin = pluginLoader.loadClass(
+                    config.plugin.path, config.plugin.className,
+                    IPlugin.class);
+            // create output depending on config file -> Reflection pattern used
+            IOutput output = outputLoader.loadClass(config.output.path, config.output.className, IOutput.class);
 
-        // create arraylist of satellites
-        ArrayList<Satellite> data = config.importSatData();
+            // create arraylist of satellites
+            ArrayList<Satellite> data = config.importSatData();
 
+            // convert satellite into tree -> Composite pattern and
+            // filter tree with plugin aggregate
+            AbstractNode<String> result = plugin.filter(data);
 
-        // convert satellite into tree -> Composite pattern and
-        // filter tree with plugin aggregate
-        AbstractNode<String> result = plugin.filter(data);
-
-        // output tree with output aggregate
-        output.output(result);
+            // output tree with output aggregate
+            output.output(result);
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -2,11 +2,13 @@ package loading.tests;
 import dhbw.swe.ClassLoader;
 import dhbw.swe.ConfigData;
 import dhbw.swe.IPlugin;
+import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 import plugins.GermanChannels;
 
 
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.MalformedURLException;
 
@@ -25,6 +27,9 @@ public class AggregateLoadingTest {
 
     // import config data
     ConfigData config = ConfigData.importConfig(TEST1_CONFIG_PATH);
+
+    public AggregateLoadingTest() throws IOException, ParseException {
+    }
 
 
     /**

@@ -1,7 +1,10 @@
 package dhbw.swe;
 
+import org.json.simple.parser.ParseException;
 import readJSON.ReadJSON;
 import readJSON.Satellite;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import static readJSON.ReadJSON.createSatelliteArray;
 
@@ -37,7 +40,7 @@ public class ConfigData {
      * @param configPath path to config file
      * @return data of config file
      */
-    public static ConfigData importConfig(String configPath) {
+    public static ConfigData importConfig(String configPath) throws IOException, ParseException {
         return ReadJSON.readConfigData(configPath);
     }
 
