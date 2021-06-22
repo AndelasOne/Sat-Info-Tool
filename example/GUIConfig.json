@@ -1,0 +1,11 @@
+{
+  "data": "./satellites.json",
+  "plugins": {
+    "classname": "plugins.ProgramCounter",
+    "path": "./Sat_Tool.jar"
+  },
+  "output": {
+    "classname": "outputs.GUIOutput",
+    "path": "./Sat_Tool.jar"
+  }
+}
