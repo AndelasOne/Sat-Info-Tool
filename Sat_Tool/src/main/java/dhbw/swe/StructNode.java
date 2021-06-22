@@ -8,11 +8,12 @@
 package dhbw.swe;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 public class StructNode<V> extends AbstractNode<V> {
-    private final Map<String, AbstractNode<V>> nodeMap = new HashMap<>();
+    private final Map<String, AbstractNode<V>> nodeMap = new LinkedHashMap<>();
 
     public void addPair(String key, AbstractNode<V> value) {
         nodeMap.put(key, value);

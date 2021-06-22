@@ -23,59 +23,29 @@
         "type": "R",
         "name": "Testchannel2",
         "v_pid": "2030",
-        "a_pid": "2002 ger",
+        "a_pid": "2001 eng",
         "compression": "MPEG-4",
         "url": "http:\/\/test2.tv\/",
         "enc": "Bulcrypt",
         "package": " ",
         "res": "HD"
-      }
-    ]
-  },
-  {
-    "sat": "Testsatellite-1",
-    "pol": "H",
-    "orbital": "1.0° N",
-    "freq": "13000",
-    "sym": "20000",
-    "channels": [
+      },
       {
-        "sid": "100",
+        "sid": "101",
         "type": "R",
         "name": "Testchannel3",
         "v_pid": "2030",
-        "a_pid": "2001 eng",
+        "a_pid": "2002 eng",
         "compression": "MPEG-4",
-        "url": "http:\/\/test3.tv\/",
+        "url": "http:\/\/test2.tv\/",
         "enc": "Bulcrypt",
         "package": " ",
         "res": "HD"
       },
       {
         "sid": "100",
-        "type": "R",
+        "type": "TV",
         "name": "Testchannel4",
-        "v_pid": "2030",
-        "a_pid": "2001 eng",
-        "compression": "MPEG-4",
-        "url": "http:\/\/test3.tv\/",
-        "enc": "Bulcrypt",
-        "package": " ",
-        "res": "HD"
-      }
-    ]
-  },
-  {
-    "sat": "Testsatellite-2",
-    "pol": "H",
-    "orbital": "1.0° N",
-    "freq": "13000",
-    "sym": "20000",
-    "channels": [
-      {
-        "sid": "100",
-        "type": "R",
-        "name": "Testchannel5",
         "v_pid": "2030",
         "a_pid": "2001 ger",
         "compression": "MPEG-4",
@@ -86,5 +56,8 @@
       }
     ]
   }
-]
+
+  ]
+
+
 

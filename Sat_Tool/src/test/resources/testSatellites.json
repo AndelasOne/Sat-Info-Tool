@@ -31,6 +31,29 @@
         "res": "HD"
       }
     ]
-  }
-]
+  },
+  {
+    "sat": "Testsatellite-2",
+    "pol": "H",
+    "orbital": "1.9° E",
+    "freq": "12000",
+    "sym": "30000",
+    "channels": [
+      {
+        "sid": "100",
+        "type": "TV",
+        "name": "Testchannel1",
+        "v_pid": "2030",
+        "a_pid": "2001 ger",
+        "compression": "MPEG-4",
+        "url": "http:\/\/test1.tv\/",
+        "enc": "Bulcrypt",
+        "package": " ",
+        "res": "HD"
+      }
+      ]
+    }
+  ]
+
+
 

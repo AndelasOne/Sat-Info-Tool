@@ -30,7 +30,7 @@ public class ProgramCounter implements IPlugin {
         root.addPair("Results: Program Counter", satelliteComposites);
 
         HashMap<String, HashMap<String, Transponder>> satellites  = new HashMap<>(); // Map of sat-name and transponders
-        HashMap<String, Transponder> currentTransponders = new HashMap<>(); // Map of freq and transponder
+        HashMap<String, Transponder> currentTransponders; // Map of freq and transponder
 
 
 
