@@ -1,10 +1,12 @@
 package loading.tests;
 
 import dhbw.swe.ConfigData;
+import org.json.simple.parser.ParseException;
 import org.junit.Assert;
 import org.junit.Test;
 import plugins.GermanChannels;
 
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
@@ -23,6 +25,9 @@ public class ConfigLoadingTest {
 
     // import config data
     ConfigData config = ConfigData.importConfig(TEST_CONFIG_PATH);
+
+    public ConfigLoadingTest() throws IOException, ParseException {
+    }
 
     /**
      * Checks if path of loaded config file exists

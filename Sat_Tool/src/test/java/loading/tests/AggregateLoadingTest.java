@@ -30,13 +30,7 @@ public class AggregateLoadingTest {
 
     // init loaders
     ClassLoader<IPlugin> pluginLoader = new ClassLoader<>();
-
-    // import config data
-    ConfigData config = ConfigData.importConfig(TEST1_CONFIG_PATH);
-
-    public AggregateLoadingTest() throws IOException, ParseException {
-    }
-
+    ClassLoader<IOutput> outputLoader = new ClassLoader<>();
 
     /**
      * Test if reflection creates german channel plugin object that was defined in the config file
@@ -48,7 +42,7 @@ public class AggregateLoadingTest {
      * @throws IllegalAccessException
      */
     @Test
-    public void loadGermanChannelsPlugin() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void loadGermanChannelsPlugin() throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, ParseException {
         // import config data
         ConfigData config = ConfigData.importConfig(germanChannel_UI_Config_PATH);
 
@@ -61,7 +55,7 @@ public class AggregateLoadingTest {
     }
 
     @Test
-    public void loadProgramCounterPlugin() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void loadProgramCounterPlugin() throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, ParseException {
         ConfigData config = ConfigData.importConfig(programCounter_JSON_Config_PATH);
         IPlugin plugin = pluginLoader.loadClass(
                 config.getPlugin().getPath(), config.getPlugin().getClassName(),
@@ -70,7 +64,7 @@ public class AggregateLoadingTest {
     }
 
     @Test
-    public void loadGuiOutput() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void loadGuiOutput() throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, ParseException {
         ConfigData config = ConfigData.importConfig(germanChannel_UI_Config_PATH);
 
         IOutput output = outputLoader.loadClass(
@@ -81,7 +75,7 @@ public class AggregateLoadingTest {
     }
 
     @Test
-    public void loadJsonOutput() throws MalformedURLException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public void loadJsonOutput() throws IOException, ClassNotFoundException, InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException, ParseException {
         ConfigData config = ConfigData.importConfig(programCounter_JSON_Config_PATH);
 
         IOutput output = outputLoader.loadClass(
