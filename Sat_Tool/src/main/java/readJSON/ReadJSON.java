@@ -102,7 +102,7 @@ public class ReadJSON {
         ) {
             channelArray.add(parseChannel((JSONObject) jChannel));
         }
-        return new Satellite(pol, sat, orbital, freq, sym, channelArray);
+        return new Satellite(pol, sat, orbital,sym, freq, channelArray);
     }
 
     /**

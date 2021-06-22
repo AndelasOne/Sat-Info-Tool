@@ -30,27 +30,35 @@ public class ProgramCounter implements IPlugin {
         root.addPair("Results: Program Counter", satelliteComposites);
 
         HashMap<String, HashMap<String, Transponder>> satellites  = new HashMap<>(); // Map of sat-name and transponders
-        HashMap<String, Transponder> transponders = new HashMap<>(); // Map of freq and transponder
+        HashMap<String, Transponder> currentTransponders; // Map of freq and transponder
 
 
 
         // first iteration to get transponders
         for (Satellite currentSat:input
         ) {
-            if (!transponders.containsKey(currentSat.freq)){
-                Transponder newTransponder = new Transponder(currentSat.freq);
-                transponders.put(currentSat.freq, newTransponder);
-            }
+           if (satellites.containsKey(currentSat.sat)) {
+               currentTransponders = satellites.get(currentSat.sat);
+           }
+           else{
+               currentTransponders = new HashMap<>();
+           }
 
-            Transponder currentTransponder = transponders.get(currentSat.freq);
+            if (!currentTransponders.containsKey(currentSat.freq)){
+                Transponder newTransponder = new Transponder(currentSat.freq);
+                currentTransponders.put(currentSat.freq, newTransponder);
+            }
+            Transponder currentTransponder = currentTransponders.get(currentSat.freq);
+
             // iterate over channels of satellite and add programs
             for (Channel currentChannel:currentSat.getChannels()
             ) {
                 currentTransponder.addNextProgram(currentChannel.type);
             }
 
+            // update transponders of satellites
             if (!satellites.containsKey(currentSat.sat)){
-                satellites.put(currentSat.sat, transponders);
+                satellites.put(currentSat.sat, currentTransponders);
             }
         }
 
@@ -67,13 +75,12 @@ public class ProgramCounter implements IPlugin {
                  ) {
 
                 StructNode<String> newTransponderComposite = new StructNode<>();
-                ArrayNode<String> programComposite = new ArrayNode<>();
+                ArrayNode<String> newProgramComposite = new ArrayNode<>();
 
-                newTransponderComposite.addPair("freq" + freq, programComposite);
-                Transponder  transponder = transponders.get(freq);
+                newTransponderComposite.addPair("freq " + freq, newProgramComposite);
 
-                // add leaves of transponder
-                addTransponderLeaves(newTransponderComposite, transponder.getPrograms());
+                Transponder  transponder = transponderHashMap.get(freq);
+                addTransponderLeaves(newProgramComposite, transponder.getPrograms());
 
                 // add transponder composite to sat composite
                 transponderComposites.addElement(newTransponderComposite);
@@ -89,12 +96,14 @@ public class ProgramCounter implements IPlugin {
      * @param composite struct node to append leaves
      * @param programs of composite
      */
-    private void addTransponderLeaves(StructNode<String> composite, HashMap<String, Integer> programs) {
+    private void addTransponderLeaves(ArrayNode<String> composite, HashMap<String, Integer> programs) {
         for (String type: programs.keySet()){
+            StructNode<String> newProgram = new StructNode<>();
             int count = programs.get(type);
-
             Leaf<String> newLeaf = new Leaf<>(Integer.toString(count));
-            composite.addPair(type, newLeaf);
+
+            newProgram.addPair(type, newLeaf);
+            composite.addElement(newProgram);
         }
     }
 

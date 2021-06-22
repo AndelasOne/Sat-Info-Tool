@@ -14,6 +14,10 @@ public class Transponder {
     private final HashMap<String, Integer> programs;
 
 
+    public String getFrequency() {
+        return frequency;
+    }
+
     /**
      *
      * @param frequency of transponder
